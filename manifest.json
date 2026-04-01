@@ -1,0 +1,24 @@
+{
+  "name": "Crespo & Cortés Wedding",
+  "short_name": "Chichi Wedding",
+  "description": "Our wedding guest list — because love is selective.",
+  "start_url": "/ChichiWedding/",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#4A6741",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
