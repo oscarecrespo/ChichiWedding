@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#4A6741">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="manifest" href="manifest.json">
-<title>Crespo &amp; Cortés — Wedding Guest List</title>
+<title>Crespo &amp; Cortés — Wedding Command Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -25,42 +25,44 @@
   --no:#7b1d1d;--no-bg:#fde8e8;
 }
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
-body::before{content:'';position:fixed;inset:0;background-image:url('background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.22;z-index:0;pointer-events:none;}
-.app{position:relative;z-index:1;}
-.app{max-width:960px;margin:0 auto;padding:1.5rem 1rem;}
+body::before{content:'';position:fixed;inset:0;background-image:url('background.jpg');background-size:cover;background-position:center;opacity:0.22;z-index:0;pointer-events:none;}
+.app{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem 1rem;}
 
-/* HEADER */
 .header{text-align:center;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
 .header h1{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;letter-spacing:0.02em;}
 .header p{font-size:11px;color:var(--text-muted);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase;}
 
-/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
 .stat-card{background:white;border:0.5px solid var(--border);border-radius:10px;padding:12px 14px;}
 .stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;}
 .stat-num.must{color:var(--must);}
 .stat-num.strong{color:var(--strong);}
-.stat-num.weak{color:var(--weak);}
 
-/* TABS */
-.tabs{display:flex;gap:4px;margin-bottom:1.5rem;background:white;border:0.5px solid var(--border);border-radius:10px;padding:4px;overflow-x:auto;}
-.tab{flex:1;min-width:80px;padding:8px 10px;border:none;background:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:var(--text-muted);cursor:pointer;transition:all 0.15s;white-space:nowrap;}
+.tabs-wrapper{overflow-x:auto;margin-bottom:1.5rem;-webkit-overflow-scrolling:touch;}
+.tabs{display:flex;gap:4px;background:white;border:0.5px solid var(--border);border-radius:10px;padding:4px;min-width:max-content;}
+.tab{padding:8px 14px;border:none;background:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:var(--text-muted);cursor:pointer;transition:all 0.15s;white-space:nowrap;}
 .tab.active{background:var(--text);color:white;font-weight:500;}
 
 .panel{display:none;}
 .panel.active{display:block;}
 
-/* FORM */
-.form-card{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
-.form-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;margin-bottom:1.2rem;}
+.card{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;margin-bottom:1.2rem;}
+.card-subtitle{font-size:13px;color:var(--text-muted);margin-bottom:1.2rem;margin-top:-0.8rem;}
+
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
 .form-row.full{grid-template-columns:1fr;}
 .form-row.three{grid-template-columns:1fr 1fr 1fr;}
 .form-group{display:flex;flex-direction:column;gap:5px;}
 .form-group label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;}
-.form-group input,.form-group select{padding:9px 12px;border:0.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;background:var(--cream);color:var(--text);outline:none;}
-.form-group input:focus,.form-group select:focus{border-color:var(--burgundy-mid);}
+.form-group input,.form-group select,.form-group textarea{padding:9px 12px;border:0.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;background:var(--cream);color:var(--text);outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--burgundy-mid);}
+.form-group textarea{resize:vertical;min-height:70px;}
+
+.checks-row{display:flex;flex-wrap:wrap;gap:16px;margin:1rem 0;padding:12px 0;border-top:0.5px solid var(--border);}
+.check-item{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text);}
+.check-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--sage);cursor:pointer;flex-shrink:0;}
 
 .scorer-toggle{display:flex;gap:8px;}
 .scorer-btn{flex:1;padding:9px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s;background:white;color:var(--text-muted);}
@@ -71,37 +73,43 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .type-btn{flex:1;padding:9px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s;background:white;color:var(--text-muted);}
 .type-btn.active{background:#f0f0f0;border-color:#999;color:var(--text);}
 
-.criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.2rem 0;}
+.criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1rem 0;}
 .criteria-item{background:var(--cream);border-radius:8px;padding:12px;}
 .criteria-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.criteria-name{font-size:12px;font-weight:500;color:var(--text);}
+.criteria-name{font-size:12px;font-weight:500;}
 .criteria-val{font-size:14px;font-weight:500;color:var(--burgundy);min-width:20px;text-align:right;}
 input[type=range]{width:100%;accent-color:var(--burgundy);cursor:pointer;}
-
-.intl-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:0.5px solid var(--border);margin-top:4px;}
-.intl-row label{font-size:13px;color:var(--text);flex:1;}
-.toggle{position:relative;width:38px;height:22px;flex-shrink:0;}
-.toggle input{opacity:0;width:0;height:0;}
-.toggle-slider{position:absolute;inset:0;background:#ccc;border-radius:22px;cursor:pointer;transition:0.2s;}
-.toggle input:checked+.toggle-slider{background:var(--sage);}
-.toggle-slider:before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:white;border-radius:50%;transition:0.2s;}
-.toggle input:checked+.toggle-slider:before{transform:translateX(16px);}
 
 .score-preview{background:var(--gold-light);border:1px solid #e8d5b0;border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;margin:1rem 0;}
 .score-preview-label{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;font-weight:500;}
 .score-preview-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;color:var(--gold);}
+.family-mult-badge{font-size:11px;color:var(--sage);background:var(--sage-light);padding:2px 8px;border-radius:10px;margin-top:4px;display:none;}
 
-.submit-btn{width:100%;padding:13px;background:var(--text);color:white;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:opacity 0.15s;letter-spacing:0.02em;margin-top:4px;}
-.submit-btn:hover{opacity:0.85;}
-.submit-btn:disabled{opacity:0.4;cursor:not-allowed;}
-.submit-btn.secondary{background:white;color:var(--text);border:1px solid var(--border);}
-.submit-btn.danger{background:var(--no-bg);color:var(--no);border:none;}
+.btn{padding:9px 18px;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity 0.15s;}
+.btn:hover{opacity:0.85;}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-primary{background:var(--text);color:white;}
+.btn-sage{background:var(--sage);color:white;}
+.btn-burgundy{background:var(--burgundy);color:white;}
+.btn-ghost{background:white;color:var(--text);border:0.5px solid var(--border);}
+.btn-danger{background:var(--no-bg);color:var(--no);}
+.btn-full{width:100%;padding:13px;font-size:14px;}
 
-/* LIST */
+.tier-badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap;display:inline-block;}
+.tier-must{background:var(--must-bg);color:var(--must);}
+.tier-strong{background:var(--strong-bg);color:var(--strong);}
+.tier-weak{background:var(--weak-bg);color:var(--weak);}
+.tier-no{background:var(--no-bg);color:var(--no);}
+.tag{font-size:10px;padding:1px 7px;border-radius:10px;margin-left:3px;vertical-align:middle;display:inline-block;}
+.tag-intl{background:#e8f4fd;color:#1a6a9a;}
+.tag-parents{background:#f3e8fd;color:#6a1a9a;}
+.tag-family{background:#fde8f3;color:#9a1a6a;}
+.tag-plus1{background:#fdf3e8;color:#9a6a1a;}
+
 .list-controls{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:center;}
 .filter-btn{padding:6px 14px;border:0.5px solid var(--border);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;background:white;color:var(--text-muted);transition:all 0.15s;}
 .filter-btn.active{background:var(--text);color:white;border-color:var(--text);}
-.search-input{padding:6px 12px;border:0.5px solid var(--border);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;background:white;color:var(--text);outline:none;width:160px;}
+.search-input{padding:6px 12px;border:0.5px solid var(--border);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;background:white;color:var(--text);outline:none;width:150px;}
 
 .guest-list{display:flex;flex-direction:column;gap:8px;}
 .guest-card{background:white;border:0.5px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;}
@@ -109,95 +117,115 @@ input[type=range]{width:100%;accent-color:var(--burgundy);cursor:pointer;}
 .avatar-oscar{background:var(--burgundy-light);color:var(--burgundy);}
 .avatar-mariana{background:var(--sage-light);color:var(--sage);}
 .guest-info{flex:1;min-width:0;}
-.guest-name{font-size:14px;font-weight:500;color:var(--text);}
+.guest-name{font-size:14px;font-weight:500;}
 .guest-meta{font-size:11px;color:var(--text-muted);margin-top:2px;}
 .guest-actions{display:flex;gap:6px;flex-shrink:0;}
 .icon-btn{background:none;border:0.5px solid var(--border);border-radius:6px;color:var(--text-muted);cursor:pointer;font-size:12px;padding:5px 8px;font-family:'DM Sans',sans-serif;}
 .icon-btn:hover{border-color:var(--burgundy);color:var(--burgundy);}
 .icon-btn.del:hover{border-color:var(--no);color:var(--no);}
+.score-section{text-align:right;flex-shrink:0;}
+.score-big{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;}
 
-.tier-badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap;display:inline-block;}
-.tier-must{background:var(--must-bg);color:var(--must);}
-.tier-strong{background:var(--strong-bg);color:var(--strong);}
-.tier-weak{background:var(--weak-bg);color:var(--weak);}
-.tier-no{background:var(--no-bg);color:var(--no);}
-
-.intl-badge{font-size:10px;background:#e8f4fd;color:#1a6a9a;padding:1px 6px;border-radius:10px;margin-left:4px;vertical-align:middle;}
-.family-badge{font-size:10px;background:#f3e8fd;color:#6a1a9a;padding:1px 6px;border-radius:10px;margin-left:4px;vertical-align:middle;}
-
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
-.modal{background:white;border-radius:14px;padding:1.5rem;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;}
-.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;margin-bottom:1.2rem;}
-.modal-actions{display:flex;gap:8px;margin-top:1rem;}
-.modal-actions button{flex:1;}
-.dup-warning{background:#fff8e1;border:1px solid #f0c040;border-radius:8px;padding:10px 14px;font-size:13px;color:#7a5c00;margin-bottom:1rem;}
-
-/* REVIEW */
-.review-section{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1.5rem;}
-.review-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;margin-bottom:.4rem;}
-.review-subtitle{font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;}
 .tier-group{margin-bottom:1.5rem;}
 .tier-group-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-bottom:6px;border-bottom:0.5px solid var(--border);}
-.tier-count{font-size:12px;color:var(--text-muted);}
 .review-row{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:0.5px solid var(--border);}
 .review-name{font-size:13px;flex:1;font-weight:500;}
-.review-notes{font-size:11px;color:var(--text-muted);}
-.review-score{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;min-width:32px;text-align:right;}
 
-/* SEATING */
 .seating-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:1.2rem;}
 .seating-controls label{font-size:13px;color:var(--text-muted);}
 .seating-controls input[type=number]{width:60px;padding:6px 10px;border:0.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);color:var(--text);outline:none;}
-.auto-btn{padding:8px 18px;background:var(--sage);color:white;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity 0.15s;}
-.auto-btn:hover{opacity:0.85;}
-.save-seating-btn{padding:8px 18px;background:var(--burgundy);color:white;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity 0.15s;}
-.save-seating-btn:hover{opacity:0.85;}
-
 .tables-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
 .table-card{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1rem;}
 .table-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
 .table-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;}
 .table-count{font-size:11px;color:var(--text-muted);}
-.table-drop-zone{min-height:60px;border-radius:8px;transition:background 0.15s;}
+.table-drop-zone{min-height:50px;border-radius:8px;transition:background 0.15s;}
 .table-drop-zone.drag-over{background:var(--sage-light);}
-.seat-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;margin-bottom:4px;background:var(--cream);cursor:grab;border:0.5px solid transparent;transition:all 0.15s;font-size:13px;}
+.seat-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;margin-bottom:4px;background:var(--cream);cursor:grab;border:0.5px solid transparent;font-size:13px;}
 .seat-item:hover{border-color:var(--border);background:white;}
 .seat-item.dragging{opacity:0.4;}
 .seat-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;}
 .unassigned-pool{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1.5rem;}
 .unassigned-title{font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
 
-/* CONFIG */
-.config-card{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;}
-.config-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:.4rem;}
-.config-subtitle{font-size:13px;color:var(--text-muted);margin-bottom:1.2rem;}
+.budget-total-card{background:var(--gold-light);border:1px solid #e8d5b0;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.5rem;}
+.budget-total-label{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.budget-total-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;color:var(--gold);}
+.budget-burn-bar{height:8px;background:#e8d5b0;border-radius:4px;margin-top:8px;overflow:hidden;}
+.budget-burn-fill{height:100%;border-radius:4px;transition:width 0.3s;}
+.burn-ok{background:var(--sage);}
+.burn-warn{background:var(--gold);}
+.burn-over{background:var(--burgundy);}
+.budget-table{width:100%;border-collapse:collapse;font-size:13px;}
+.budget-table th{text-align:left;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;padding:8px 8px;border-bottom:1px solid var(--border);}
+.budget-table td{padding:8px 8px;border-bottom:0.5px solid var(--border);vertical-align:middle;}
+.budget-table input{padding:5px 8px;border:0.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);color:var(--text);outline:none;width:100%;}
+.bstatus{font-size:10px;padding:1px 6px;border-radius:10px;margin-left:4px;}
+.bover{background:var(--no-bg);color:var(--no);}
+.bok{background:var(--must-bg);color:var(--must);}
+.bpending{background:#f0f0f0;color:var(--text-muted);}
+
+.vendor-pipeline{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.pipeline-stage{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--border);background:white;color:var(--text-muted);transition:all 0.15s;}
+.pipeline-stage.active{background:var(--text);color:white;border-color:var(--text);}
+.vendor-card{background:white;border:0.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px;}
+.vendor-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px;}
+.vendor-name{font-size:14px;font-weight:500;}
+.vendor-cat{font-size:11px;color:var(--text-muted);}
+.vendor-meta{font-size:12px;color:var(--text-muted);margin-top:3px;}
+.vstatus{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.vs-researching{background:#f0f0f0;color:var(--text-muted);}
+.vs-contacted{background:#e8f4fd;color:#1a6a9a;}
+.vs-quoted{background:var(--weak-bg);color:var(--weak);}
+.vs-booked{background:var(--strong-bg);color:var(--strong);}
+.vs-deposit{background:var(--sage-light);color:var(--sage);}
+.vs-paid{background:var(--must-bg);color:var(--must);}
+
+.ideas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:1rem;}
+.idea-card{background:white;border:0.5px solid var(--border);border-radius:10px;padding:14px 16px;}
+.idea-cat{font-size:10px;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px;font-weight:500;}
+.cat-venue{background:#e8f4fd;color:#1a6a9a;}
+.cat-florals{background:var(--sage-light);color:var(--sage);}
+.cat-music{background:var(--strong-bg);color:var(--strong);}
+.cat-food{background:var(--weak-bg);color:var(--weak);}
+.cat-decor{background:var(--burgundy-light);color:var(--burgundy);}
+.cat-other{background:#f0f0f0;color:var(--text-muted);}
+.idea-text{font-size:13px;line-height:1.5;}
+.idea-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
+.idea-by{font-size:11px;color:var(--text-muted);}
+.idea-del{background:none;border:none;color:#ccc;cursor:pointer;font-size:18px;line-height:1;}
+.idea-del:hover{color:var(--no);}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.modal{background:white;border-radius:14px;padding:1.5rem;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;margin-bottom:1.2rem;}
+.modal-actions{display:flex;gap:8px;margin-top:1rem;}
+.modal-actions .btn{flex:1;}
+.dup-warning{background:#fff8e1;border:1px solid #f0c040;border-radius:8px;padding:10px 14px;font-size:13px;color:#7a5c00;margin-bottom:1rem;}
+
 .threshold-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
 .threshold-input{width:70px;padding:6px 10px;border:0.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);color:var(--text);}
-.threshold-desc{font-size:12px;color:var(--text-muted);}
 .weights-table{width:100%;font-size:13px;border-collapse:collapse;}
 .weights-table td{padding:6px 4px;border-bottom:0.5px solid var(--border);}
 .weights-table tr:last-child td{border-bottom:none;font-weight:500;}
 .weights-table td:last-child{text-align:right;color:var(--text-muted);}
 
-/* UTILS */
 .msg{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:1rem;}
 .msg.success{background:var(--must-bg);color:var(--must);}
 .msg.error{background:var(--no-bg);color:var(--no);}
 .loading{text-align:center;padding:2rem;color:var(--text-muted);font-size:13px;}
 .empty-state{text-align:center;padding:3rem;color:var(--text-muted);font-size:14px;}
 .empty-icon{font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:8px;}
-.score-section{text-align:right;flex-shrink:0;}
-.score-big{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;}
+.divider{height:0.5px;background:var(--border);margin:1rem 0;}
 
 @media(max-width:600px){
   .form-row,.form-row.three{grid-template-columns:1fr;}
   .criteria-grid{grid-template-columns:1fr;}
   .stats-row{grid-template-columns:repeat(2,1fr);}
   .header h1{font-size:1.7rem;}
-  .tab{font-size:11px;padding:7px 6px;}
   .tables-grid{grid-template-columns:1fr;}
-  .guest-actions{flex-direction:column;}
+  .ideas-grid{grid-template-columns:1fr;}
+  .budget-table{font-size:11px;}
 }
 </style>
 </head>
@@ -205,93 +233,58 @@ input[type=range]{width:100%;accent-color:var(--burgundy);cursor:pointer;}
 <div class="app">
   <div class="header">
     <h1>Crespo &amp; Cortés</h1>
-    <p>Wedding Guest List &middot; 2026</p>
+    <p>Wedding Command Center &middot; 2026</p>
   </div>
-
   <div id="msg-area"></div>
-
   <div class="stats-row">
     <div class="stat-card"><div class="stat-label">Total guests</div><div class="stat-num" id="stat-total">—</div></div>
     <div class="stat-card"><div class="stat-label">Must</div><div class="stat-num must" id="stat-must">—</div></div>
     <div class="stat-card"><div class="stat-label">Strong maybe</div><div class="stat-num strong" id="stat-strong">—</div></div>
-    <div class="stat-card"><div class="stat-label">Weak maybe</div><div class="stat-num weak" id="stat-weak">—</div></div>
+    <div class="stat-card"><div class="stat-label">Seats needed</div><div class="stat-num" id="stat-seats">—</div></div>
+  </div>
+  <div class="tabs-wrapper">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('add',this)">Add guest</button>
+      <button class="tab" onclick="switchTab('list',this)">Guest list</button>
+      <button class="tab" onclick="switchTab('review',this)">Review</button>
+      <button class="tab" onclick="switchTab('seating',this)">Seating</button>
+      <button class="tab" onclick="switchTab('budget',this)">Budget</button>
+      <button class="tab" onclick="switchTab('vendors',this)">Vendors</button>
+      <button class="tab" onclick="switchTab('ideas',this)">Ideas</button>
+      <button class="tab" onclick="switchTab('config',this)">Settings</button>
+    </div>
   </div>
 
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('add',this)">Add guest</button>
-    <button class="tab" onclick="switchTab('list',this)">Guest list</button>
-    <button class="tab" onclick="switchTab('review',this)">Review together</button>
-    <button class="tab" onclick="switchTab('seating',this)">Seating</button>
-    <button class="tab" onclick="switchTab('config',this)">Settings</button>
-  </div>
-
-  <!-- ADD -->
+  <!-- ADD GUEST -->
   <div class="panel active" id="panel-add">
-    <div class="form-card">
-      <div class="form-title">Add a guest</div>
+    <div class="card">
+      <div class="card-title">Add a guest</div>
       <div id="dup-warning" style="display:none" class="dup-warning"></div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Guest name</label>
-          <input type="text" id="f-name" placeholder="Full name" oninput="checkDuplicate()" />
-        </div>
-        <div class="form-group">
-          <label>Scoring as</label>
-          <div class="scorer-toggle">
-            <button class="scorer-btn oscar active" onclick="setScorer('oscar')">Oscar</button>
-            <button class="scorer-btn mariana" onclick="setScorer('mariana')">Mariana</button>
-          </div>
-        </div>
+        <div class="form-group"><label>Guest name</label><input type="text" id="f-name" placeholder="Full name" oninput="checkDuplicate()" /></div>
+        <div class="form-group"><label>Scoring as</label><div class="scorer-toggle"><button class="scorer-btn oscar active" onclick="setScorer('oscar')">Oscar</button><button class="scorer-btn mariana" onclick="setScorer('mariana')">Mariana</button></div></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Guest type</label>
-          <div class="type-toggle">
-            <button class="type-btn active" onclick="setType('friend',this)">Friend</button>
-            <button class="type-btn" onclick="setType('family',this)">Family</button>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Notes (optional)</label>
-          <input type="text" id="f-notes" placeholder="e.g. college friend, Oscar's cousin..." />
-        </div>
+        <div class="form-group"><label>Guest type</label><div class="type-toggle"><button class="type-btn active" onclick="setType('friend',this)">Friend</button><button class="type-btn" onclick="setType('family',this)">Family</button></div></div>
+        <div class="form-group"><label>Notes (optional)</label><input type="text" id="f-notes" placeholder="e.g. college friend, Oscar's cousin..." /></div>
       </div>
-
       <div class="criteria-grid">
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Closeness</span><span class="criteria-val" id="v-closeness">5</span></div>
-          <input type="range" min="0" max="10" value="5" step="1" id="s-closeness" oninput="updateSlider('closeness')" />
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Family obligation</span><span class="criteria-val" id="v-family">3</span></div>
-          <input type="range" min="0" max="10" value="3" step="1" id="s-family" oninput="updateSlider('family')" />
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Vibes ✨</span><span class="criteria-val" id="v-vibes">5</span></div>
-          <input type="range" min="0" max="10" value="5" step="1" id="s-vibes" oninput="updateSlider('vibes')" />
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Mutual friend</span><span class="criteria-val" id="v-mutual">0</span></div>
-          <input type="range" min="0" max="10" value="0" step="1" id="s-mutual" oninput="updateSlider('mutual')" />
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="v-reciprocal">0</span></div>
-          <input type="range" min="0" max="10" value="0" step="1" id="s-reciprocal" oninput="updateSlider('reciprocal')" />
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="v-frequency">3</span></div>
-          <input type="range" min="0" max="10" value="3" step="1" id="s-frequency" oninput="updateSlider('frequency')" />
-        </div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Closeness</span><span class="criteria-val" id="v-closeness">5</span></div><input type="range" min="0" max="10" value="5" step="1" id="s-closeness" oninput="updateSlider('closeness')" /></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Family obligation</span><span class="criteria-val" id="v-family">3</span></div><input type="range" min="0" max="10" value="3" step="1" id="s-family" oninput="updateSlider('family')" /></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Vibes ✨</span><span class="criteria-val" id="v-vibes">5</span></div><input type="range" min="0" max="10" value="5" step="1" id="s-vibes" oninput="updateSlider('vibes')" /></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Mutual friend</span><span class="criteria-val" id="v-mutual">0</span></div><input type="range" min="0" max="10" value="0" step="1" id="s-mutual" oninput="updateSlider('mutual')" /></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="v-reciprocal">0</span></div><input type="range" min="0" max="10" value="0" step="1" id="s-reciprocal" oninput="updateSlider('reciprocal')" /></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="v-frequency">3</span></div><input type="range" min="0" max="10" value="3" step="1" id="s-frequency" oninput="updateSlider('frequency')" /></div>
       </div>
-
-      <div class="intl-row">
-        <label>International guest <span style="font-size:11px;color:var(--text-muted)">(contact frequency ×1.5 bonus)</span></label>
-        <label class="toggle"><input type="checkbox" id="f-intl" onchange="updateScorePreview()" /><span class="toggle-slider"></span></label>
+      <div class="checks-row">
+        <label class="check-item"><input type="checkbox" id="f-plus1" onchange="updateScorePreview()" /><span>+1 guest <span style="font-size:11px;color:var(--text-muted)">(counts as 2 seats)</span></span></label>
+        <label class="check-item"><input type="checkbox" id="f-intl" onchange="updateScorePreview()" /><span>International guest <span style="font-size:11px;color:var(--text-muted)">(freq ×1.5)</span></span></label>
+        <label class="check-item"><input type="checkbox" id="f-parents" /><span>Parent's guest <span style="font-size:11px;color:var(--text-muted)">(visibility tag)</span></span></label>
       </div>
-
       <div class="score-preview">
         <div>
           <div class="score-preview-label">Score preview</div>
+          <div class="family-mult-badge" id="family-mult-badge">Family ×1.5 multiplier applied</div>
           <div style="font-size:11px;color:var(--gold);margin-top:3px;" id="score-breakdown">—</div>
         </div>
         <div style="display:flex;align-items:center;gap:12px;">
@@ -299,11 +292,11 @@ input[type=range]{width:100%;accent-color:var(--burgundy);cursor:pointer;}
           <span class="score-preview-num" id="score-total">—</span>
         </div>
       </div>
-      <button class="submit-btn" id="submit-btn" onclick="addGuest()">Add to list</button>
+      <button class="btn btn-primary btn-full" id="submit-btn" onclick="addGuest()">Add to list</button>
     </div>
   </div>
 
-  <!-- LIST -->
+  <!-- GUEST LIST -->
   <div class="panel" id="panel-list">
     <div class="list-controls">
       <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
@@ -311,505 +304,517 @@ input[type=range]{width:100%;accent-color:var(--burgundy);cursor:pointer;}
       <button class="filter-btn" onclick="setFilter('strong',this)">Strong maybe</button>
       <button class="filter-btn" onclick="setFilter('weak',this)">Weak maybe</button>
       <button class="filter-btn" onclick="setFilter('no',this)">No</button>
-      <input class="search-input" type="text" placeholder="Search guests..." oninput="renderList()" id="search-input" />
+      <input class="search-input" type="text" placeholder="Search..." oninput="renderList()" id="search-input" />
     </div>
-    <div class="guest-list" id="guest-list-container"><div class="loading">Loading guests...</div></div>
+    <div class="guest-list" id="guest-list-container"><div class="loading">Loading...</div></div>
   </div>
 
   <!-- REVIEW -->
   <div class="panel" id="panel-review">
-    <div class="review-section">
-      <div class="review-title">Review session</div>
-      <div class="review-subtitle">Sit down together and go through guests grouped by tier, sorted by score.</div>
+    <div class="card">
+      <div class="card-title">Review session</div>
+      <div class="card-subtitle">Grouped by tier, sorted by score. Sit down together.</div>
       <div id="review-content"><div class="loading">Loading...</div></div>
     </div>
   </div>
 
   <!-- SEATING -->
   <div class="panel" id="panel-seating">
-    <div class="form-card">
-      <div class="form-title">Seating arrangement</div>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:1rem;">Auto-suggest groups Must + Strong Maybe guests by side and family/friend type. Drag and drop to adjust manually.</p>
+    <div class="card">
+      <div class="card-title">Seating arrangement</div>
+      <div class="card-subtitle">Must + Strong Maybe guests only. Drag and drop to adjust.</div>
       <div class="seating-controls">
-        <label>Guests per table:</label>
+        <label>Per table:</label>
         <input type="number" id="table-size" value="8" min="2" max="20" onchange="saveTableSize()" />
-        <button class="auto-btn" onclick="autoArrange()">Auto-arrange</button>
-        <button class="save-seating-btn" onclick="saveSeating()">Save arrangement</button>
+        <button class="btn btn-sage" onclick="autoArrange()">Auto-arrange</button>
+        <button class="btn btn-burgundy" onclick="saveSeating()">Save</button>
       </div>
       <div id="seating-board"><div class="loading">Loading...</div></div>
     </div>
   </div>
 
-  <!-- SETTINGS -->
-  <div class="panel" id="panel-config">
-    <div class="config-card">
-      <div class="config-title">Tier thresholds</div>
-      <div class="config-subtitle">Adjust score cutoffs as your list evolves. Max possible score is 100.</div>
-      <div class="threshold-row">
-        <span class="tier-badge tier-must" style="width:110px;text-align:center;">Must</span>
-        <input class="threshold-input" type="number" id="t-must" value="75" min="0" max="100" onchange="saveThresholds()" />
-        <span class="threshold-desc">and above</span>
+  <!-- BUDGET -->
+  <div class="panel" id="panel-budget">
+    <div class="card">
+      <div class="card-title">Budget tracker</div>
+      <div class="card-subtitle">Set your estimates, track actuals, and watch the burn bar.</div>
+      <div id="budget-summary"></div>
+      <div class="divider"></div>
+      <div style="overflow-x:auto;">
+        <table class="budget-table">
+          <thead><tr><th>Category</th><th>Estimated ($)</th><th>Actual ($)</th><th>Difference</th><th style="min-width:140px">Notes</th></tr></thead>
+          <tbody id="budget-tbody"></tbody>
+        </table>
       </div>
-      <div class="threshold-row">
-        <span class="tier-badge tier-strong" style="width:110px;text-align:center;">Strong maybe</span>
-        <input class="threshold-input" type="number" id="t-strong" value="50" min="0" max="100" onchange="saveThresholds()" />
-        <span class="threshold-desc">and above</span>
-      </div>
-      <div class="threshold-row">
-        <span class="tier-badge tier-weak" style="width:110px;text-align:center;">Weak maybe</span>
-        <input class="threshold-input" type="number" id="t-weak" value="25" min="0" max="100" onchange="saveThresholds()" />
-        <span class="threshold-desc">and above</span>
-      </div>
-      <div class="threshold-row">
-        <span class="tier-badge tier-no" style="width:110px;text-align:center;">No</span>
-        <span style="font-size:13px;color:var(--text-muted)">Below weak maybe threshold</span>
+      <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
+        <button class="btn btn-primary" onclick="saveBudget()">Save budget</button>
       </div>
     </div>
-    <div class="config-card">
-      <div class="config-title">Scoring weights</div>
-      <div class="config-subtitle">Each criterion scores 0–10, multiplied by its weight. Max total = 100 pts.</div>
+  </div>
+
+  <!-- VENDORS -->
+  <div class="panel" id="panel-vendors">
+    <div class="card">
+      <div class="card-title">Add vendor</div>
+      <div class="form-row three">
+        <div class="form-group"><label>Category</label><select id="v-cat"><option>Venue</option><option>Catering</option><option>Photography</option><option>Videography</option><option>Florals</option><option>Music / DJ</option><option>Cake</option><option>Attire</option><option>Hair & Makeup</option><option>Transport</option><option>Stationery</option><option>Officiant</option><option>Other</option></select></div>
+        <div class="form-group"><label>Vendor name</label><input type="text" id="v-name" placeholder="e.g. Studio Luz" /></div>
+        <div class="form-group"><label>Contact / website</label><input type="text" id="v-contact" placeholder="email, phone, or URL" /></div>
+      </div>
+      <div class="form-row three">
+        <div class="form-group"><label>Status</label><select id="v-status"><option value="researching">Researching</option><option value="contacted">Contacted</option><option value="quoted">Quoted</option><option value="booked">Booked</option><option value="deposit">Deposit paid</option><option value="paid">Paid in full</option></select></div>
+        <div class="form-group"><label>Quote ($)</label><input type="number" id="v-quoted" placeholder="0" /></div>
+        <div class="form-group"><label>Agreed price ($)</label><input type="number" id="v-agreed" placeholder="0" /></div>
+      </div>
+      <div class="form-row full"><div class="form-group"><label>Notes</label><input type="text" id="v-notes" placeholder="e.g. includes 8hr coverage, 2nd shooter extra" /></div></div>
+      <button class="btn btn-primary" onclick="addVendor()">Add vendor</button>
+    </div>
+    <div class="card">
+      <div class="card-title">Vendor pipeline</div>
+      <div class="vendor-pipeline">
+        <button class="pipeline-stage active" onclick="setVendorFilter('all',this)">All</button>
+        <button class="pipeline-stage" onclick="setVendorFilter('researching',this)">Researching</button>
+        <button class="pipeline-stage" onclick="setVendorFilter('contacted',this)">Contacted</button>
+        <button class="pipeline-stage" onclick="setVendorFilter('quoted',this)">Quoted</button>
+        <button class="pipeline-stage" onclick="setVendorFilter('booked',this)">Booked</button>
+        <button class="pipeline-stage" onclick="setVendorFilter('deposit',this)">Deposit paid</button>
+        <button class="pipeline-stage" onclick="setVendorFilter('paid',this)">Paid in full</button>
+      </div>
+      <div id="vendor-list"><div class="loading">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- IDEAS -->
+  <div class="panel" id="panel-ideas">
+    <div class="card">
+      <div class="card-title">Drop an idea</div>
+      <div class="form-row">
+        <div class="form-group"><label>Category</label><select id="i-cat"><option value="venue">Venue</option><option value="florals">Florals</option><option value="music">Music</option><option value="food">Food & drinks</option><option value="decor">Decor</option><option value="other">Other</option></select></div>
+        <div class="form-group"><label>Adding as</label><div class="scorer-toggle"><button class="scorer-btn oscar active" id="i-oscar-btn" onclick="setIdeaAdder('oscar')">Oscar</button><button class="scorer-btn mariana" id="i-mariana-btn" onclick="setIdeaAdder('mariana')">Mariana</button></div></div>
+      </div>
+      <div class="form-row full"><div class="form-group"><label>Your idea</label><textarea id="i-text" placeholder="A thought, a link, an inspiration, a question..."></textarea></div></div>
+      <button class="btn btn-primary" onclick="addIdea()">Save idea</button>
+    </div>
+    <div id="ideas-container"><div class="loading">Loading...</div></div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="panel" id="panel-config">
+    <div class="card">
+      <div class="card-title">Tier thresholds</div>
+      <div class="card-subtitle">Family guests get ×1.5 multiplier before tiering. Max friend score = 100, max family = 150.</div>
+      <div class="threshold-row"><span class="tier-badge tier-must" style="width:110px;text-align:center;">Must</span><input class="threshold-input" type="number" id="t-must" value="75" onchange="saveThresholds()" /><span style="font-size:12px;color:var(--text-muted)">and above</span></div>
+      <div class="threshold-row"><span class="tier-badge tier-strong" style="width:110px;text-align:center;">Strong maybe</span><input class="threshold-input" type="number" id="t-strong" value="50" onchange="saveThresholds()" /><span style="font-size:12px;color:var(--text-muted)">and above</span></div>
+      <div class="threshold-row"><span class="tier-badge tier-weak" style="width:110px;text-align:center;">Weak maybe</span><input class="threshold-input" type="number" id="t-weak" value="25" onchange="saveThresholds()" /><span style="font-size:12px;color:var(--text-muted)">and above</span></div>
+      <div class="threshold-row"><span class="tier-badge tier-no" style="width:110px;text-align:center;">No</span><span style="font-size:13px;color:var(--text-muted)">Below weak maybe threshold</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Scoring weights</div>
       <table class="weights-table">
         <tr><td>Closeness</td><td>×2.5 · max 25 pts</td></tr>
-        <tr><td>Contact frequency</td><td>×2.0 · max 20 pts (×1.5 intl bonus)</td></tr>
+        <tr><td>Contact frequency</td><td>×2.0 · max 20 pts (intl ×1.5 on freq)</td></tr>
         <tr><td>Family obligation</td><td>×1.5 · max 15 pts</td></tr>
         <tr><td>Vibes ✨</td><td>×1.5 · max 15 pts</td></tr>
         <tr><td>Would invite us</td><td>×1.5 · max 15 pts</td></tr>
         <tr><td>Mutual friend</td><td>×1.0 · max 10 pts</td></tr>
-        <tr><td><strong>Total max</strong></td><td><strong>100 pts</strong></td></tr>
+        <tr><td>Family multiplier</td><td>×1.5 on total score</td></tr>
+        <tr><td><strong>Max (friend / family)</strong></td><td><strong>100 / 150 pts</strong></td></tr>
       </table>
     </div>
   </div>
 </div>
 
-<!-- EDIT MODAL -->
+<!-- GUEST EDIT MODAL -->
 <div class="modal-overlay" id="edit-modal" style="display:none" onclick="closeEditModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-title">Edit guest</div>
     <input type="hidden" id="edit-id" />
     <div class="form-row">
-      <div class="form-group">
-        <label>Guest name</label>
-        <input type="text" id="edit-name" />
-      </div>
-      <div class="form-group">
-        <label>Added by</label>
-        <div class="scorer-toggle">
-          <button class="scorer-btn oscar" id="edit-oscar-btn" onclick="setEditScorer('oscar')">Oscar</button>
-          <button class="scorer-btn mariana" id="edit-mariana-btn" onclick="setEditScorer('mariana')">Mariana</button>
-        </div>
-      </div>
+      <div class="form-group"><label>Guest name</label><input type="text" id="edit-name" /></div>
+      <div class="form-group"><label>Added by</label><div class="scorer-toggle"><button class="scorer-btn oscar" id="edit-oscar-btn" onclick="setEditScorer('oscar')">Oscar</button><button class="scorer-btn mariana" id="edit-mariana-btn" onclick="setEditScorer('mariana')">Mariana</button></div></div>
     </div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Guest type</label>
-        <select id="edit-type">
-          <option value="friend">Friend</option>
-          <option value="family">Family</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Notes</label>
-        <input type="text" id="edit-notes" />
-      </div>
+      <div class="form-group"><label>Guest type</label><select id="edit-type"><option value="friend">Friend</option><option value="family">Family</option></select></div>
+      <div class="form-group"><label>Notes</label><input type="text" id="edit-notes" /></div>
     </div>
     <div class="criteria-grid">
-      <div class="criteria-item">
-        <div class="criteria-header"><span class="criteria-name">Closeness</span><span class="criteria-val" id="ev-closeness">5</span></div>
-        <input type="range" min="0" max="10" step="1" id="es-closeness" oninput="document.getElementById('ev-closeness').textContent=this.value" />
-      </div>
-      <div class="criteria-item">
-        <div class="criteria-header"><span class="criteria-name">Family obligation</span><span class="criteria-val" id="ev-family">3</span></div>
-        <input type="range" min="0" max="10" step="1" id="es-family" oninput="document.getElementById('ev-family').textContent=this.value" />
-      </div>
-      <div class="criteria-item">
-        <div class="criteria-header"><span class="criteria-name">Vibes ✨</span><span class="criteria-val" id="ev-vibes">5</span></div>
-        <input type="range" min="0" max="10" step="1" id="es-vibes" oninput="document.getElementById('ev-vibes').textContent=this.value" />
-      </div>
-      <div class="criteria-item">
-        <div class="criteria-header"><span class="criteria-name">Mutual friend</span><span class="criteria-val" id="ev-mutual">0</span></div>
-        <input type="range" min="0" max="10" step="1" id="es-mutual" oninput="document.getElementById('ev-mutual').textContent=this.value" />
-      </div>
-      <div class="criteria-item">
-        <div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="ev-reciprocal">0</span></div>
-        <input type="range" min="0" max="10" step="1" id="es-reciprocal" oninput="document.getElementById('ev-reciprocal').textContent=this.value" />
-      </div>
-      <div class="criteria-item">
-        <div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="ev-frequency">3</span></div>
-        <input type="range" min="0" max="10" step="1" id="es-frequency" oninput="document.getElementById('ev-frequency').textContent=this.value" />
-      </div>
+      <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Closeness</span><span class="criteria-val" id="ev-closeness">5</span></div><input type="range" min="0" max="10" step="1" id="es-closeness" oninput="document.getElementById('ev-closeness').textContent=this.value" /></div>
+      <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Family obligation</span><span class="criteria-val" id="ev-family">3</span></div><input type="range" min="0" max="10" step="1" id="es-family" oninput="document.getElementById('ev-family').textContent=this.value" /></div>
+      <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Vibes ✨</span><span class="criteria-val" id="ev-vibes">5</span></div><input type="range" min="0" max="10" step="1" id="es-vibes" oninput="document.getElementById('ev-vibes').textContent=this.value" /></div>
+      <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Mutual friend</span><span class="criteria-val" id="ev-mutual">0</span></div><input type="range" min="0" max="10" step="1" id="es-mutual" oninput="document.getElementById('ev-mutual').textContent=this.value" /></div>
+      <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="ev-reciprocal">0</span></div><input type="range" min="0" max="10" step="1" id="es-reciprocal" oninput="document.getElementById('ev-reciprocal').textContent=this.value" /></div>
+      <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="ev-frequency">3</span></div><input type="range" min="0" max="10" step="1" id="es-frequency" oninput="document.getElementById('ev-frequency').textContent=this.value" /></div>
     </div>
-    <div class="intl-row">
-      <label>International guest</label>
-      <label class="toggle"><input type="checkbox" id="edit-intl" /><span class="toggle-slider"></span></label>
+    <div class="checks-row">
+      <label class="check-item"><input type="checkbox" id="edit-plus1" /><span>+1 guest</span></label>
+      <label class="check-item"><input type="checkbox" id="edit-intl" /><span>International guest</span></label>
+      <label class="check-item"><input type="checkbox" id="edit-parents" /><span>Parent's guest</span></label>
     </div>
     <div class="modal-actions">
-      <button class="submit-btn danger" onclick="deleteGuestFromModal()">Delete</button>
-      <button class="submit-btn secondary" onclick="closeEditModal()">Cancel</button>
-      <button class="submit-btn" onclick="saveEdit()">Save changes</button>
+      <button class="btn btn-danger" onclick="deleteGuestFromModal()">Delete</button>
+      <button class="btn btn-ghost" onclick="closeEditModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Save changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- VENDOR EDIT MODAL -->
+<div class="modal-overlay" id="vendor-modal" style="display:none" onclick="closeVendorModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">Edit vendor</div>
+    <input type="hidden" id="ve-id" />
+    <div class="form-row three">
+      <div class="form-group"><label>Category</label><select id="ve-cat"><option>Venue</option><option>Catering</option><option>Photography</option><option>Videography</option><option>Florals</option><option>Music / DJ</option><option>Cake</option><option>Attire</option><option>Hair & Makeup</option><option>Transport</option><option>Stationery</option><option>Officiant</option><option>Other</option></select></div>
+      <div class="form-group"><label>Vendor name</label><input type="text" id="ve-name" /></div>
+      <div class="form-group"><label>Contact</label><input type="text" id="ve-contact" /></div>
+    </div>
+    <div class="form-row three">
+      <div class="form-group"><label>Status</label><select id="ve-status"><option value="researching">Researching</option><option value="contacted">Contacted</option><option value="quoted">Quoted</option><option value="booked">Booked</option><option value="deposit">Deposit paid</option><option value="paid">Paid in full</option></select></div>
+      <div class="form-group"><label>Quote ($)</label><input type="number" id="ve-quoted" /></div>
+      <div class="form-group"><label>Agreed ($)</label><input type="number" id="ve-agreed" /></div>
+    </div>
+    <div class="form-row full"><div class="form-group"><label>Notes</label><input type="text" id="ve-notes" /></div></div>
+    <div class="modal-actions">
+      <button class="btn btn-danger" onclick="deleteVendor()">Delete</button>
+      <button class="btn btn-ghost" onclick="closeVendorModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveVendorEdit()">Save</button>
     </div>
   </div>
 </div>
 
 <script>
-const SUPABASE_URL='https://lxttbmlpegshgsidomiz.supabase.co';
-const SUPABASE_KEY='sb_publishable_tCuYDtZVKpWVHPuwziJcDQ_5kcpGz1M';
-const H={'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY};
+const SB='https://lxttbmlpegshgsidomiz.supabase.co';
+const KEY='sb_publishable_tCuYDtZVKpWVHPuwziJcDQ_5kcpGz1M';
+const H={'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY};
 const W={closeness:2.5,family:1.5,vibes:1.5,mutual:1.0,reciprocal:1.5,frequency:2.0};
+const FAMILY_MULT=1.5;
+const BUDGET_CATS=['Venue','Catering','Photography','Videography','Florals','Music / DJ','Cake','Attire','Hair & Makeup','Transport','Stationery','Officiant','Honeymoon','Miscellaneous'];
+const STATUS_LABELS={researching:'Researching',contacted:'Contacted',quoted:'Quoted',booked:'Booked',deposit:'Deposit paid',paid:'Paid in full'};
+const CAT_LABELS={venue:'Venue',florals:'Florals',music:'Music',food:'Food & drinks',decor:'Decor',other:'Other'};
 
-let currentScorer='oscar';
-let currentType='friend';
-let currentFilter='all';
+let scorer='oscar',guestType='friend',gFilter='all',vFilter='all',ideaAdder='oscar',editScorer='oscar';
 let thresholds={must:75,strong:50,weak:25};
-let allGuests=[];
-let seatingArrangement=[];
-let tableSize=8;
-let draggedGuest=null;
-let dragSourceTable=null;
+let allGuests=[],allVendors=[],allIdeas=[],budgetData={};
+let seating=[],tableSize=8,dragId=null,dragSrc=null;
 
-// ---- SCORING ----
 function computeScore(g){
-  const freq=g.is_international?Math.min(g.contact_frequency*1.5,10):g.contact_frequency;
-  return Math.round(g.closeness*W.closeness+g.family_obligation*W.family+g.vibes*W.vibes+g.mutual_friend*W.mutual+g.would_invite_us*W.reciprocal+freq*W.frequency);
+  const freq=g.is_international?Math.min((g.contact_frequency||0)*1.5,10):(g.contact_frequency||0);
+  const raw=(g.closeness||0)*W.closeness+(g.family_obligation||0)*W.family+(g.vibes||0)*W.vibes+(g.mutual_friend||0)*W.mutual+(g.would_invite_us||0)*W.reciprocal+freq*W.frequency;
+  return Math.round(raw*(g.guest_type==='family'?FAMILY_MULT:1));
 }
-function getTier(s){
-  if(s>=thresholds.must)return'must';
-  if(s>=thresholds.strong)return'strong';
-  if(s>=thresholds.weak)return'weak';
-  return'no';
-}
+function getTier(s){return s>=thresholds.must?'must':s>=thresholds.strong?'strong':s>=thresholds.weak?'weak':'no';}
 function getTierLabel(t){return{must:'Must',strong:'Strong maybe',weak:'Weak maybe',no:'No'}[t];}
+function fmt(n){return'$'+(Math.round(n||0)).toLocaleString();}
 
-// ---- UI HELPERS ----
-function showMsg(text,type){
+function showMsg(t,type){
   const el=document.getElementById('msg-area');
-  el.innerHTML=`<div class="msg ${type}">${text}</div>`;
+  el.innerHTML=`<div class="msg ${type}">${t}</div>`;
   setTimeout(()=>el.innerHTML='',3500);
 }
+
 function setScorer(s){
-  currentScorer=s;
-  document.querySelectorAll('.scorer-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.scorer-btn.'+s).classList.add('active');
+  scorer=s;
+  document.querySelectorAll('#panel-add .scorer-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('#panel-add .scorer-btn.'+s).classList.add('active');
 }
 function setType(t,btn){
-  currentType=t;
+  guestType=t;
   document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-}
-function updateSlider(key){
-  document.getElementById('v-'+key).textContent=document.getElementById('s-'+key).value;
   updateScorePreview();
 }
-function updateScorePreview(){
-  const vals={closeness:+document.getElementById('s-closeness').value,family_obligation:+document.getElementById('s-family').value,vibes:+document.getElementById('s-vibes').value,mutual_friend:+document.getElementById('s-mutual').value,would_invite_us:+document.getElementById('s-reciprocal').value,contact_frequency:+document.getElementById('s-frequency').value,is_international:document.getElementById('f-intl').checked};
-  const score=computeScore(vals);
-  const tier=getTier(score);
-  document.getElementById('score-total').textContent=score;
-  const tp=document.getElementById('tier-preview');
-  tp.className='tier-badge tier-'+tier;
-  tp.textContent=getTierLabel(tier);
-  document.getElementById('score-breakdown').textContent=`closeness ×2.5 · family ×1.5 · vibes ×1.5 · mutual ×1.0 · reciprocal ×1.5 · freq ×2.0${vals.is_international?' · intl ×1.5 on freq':''}`;
-}
-
-function checkDuplicate(){
-  const name=document.getElementById('f-name').value.trim().toLowerCase();
-  const el=document.getElementById('dup-warning');
-  if(!name){el.style.display='none';return;}
-  const match=allGuests.find(g=>g.name.toLowerCase()===name);
-  if(match){el.style.display='block';el.textContent=`⚠️ "${match.name}" is already on the list (added by ${match.added_by}).`;}
-  else el.style.display='none';
-}
-
-// ---- ADD GUEST ----
-async function addGuest(){
-  const name=document.getElementById('f-name').value.trim();
-  if(!name){showMsg('Please enter a guest name.','error');return;}
-  const btn=document.getElementById('submit-btn');
-  btn.disabled=true;btn.textContent='Saving...';
-  const payload={name,added_by:currentScorer,scorer:currentScorer,guest_type:currentType,closeness:+document.getElementById('s-closeness').value,family_obligation:+document.getElementById('s-family').value,vibes:+document.getElementById('s-vibes').value,mutual_friend:+document.getElementById('s-mutual').value,would_invite_us:+document.getElementById('s-reciprocal').value,contact_frequency:+document.getElementById('s-frequency').value,is_international:document.getElementById('f-intl').checked,notes:document.getElementById('f-notes').value.trim()||null};
-  try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/guests`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
-    if(!res.ok)throw new Error(await res.text());
-    showMsg(`${name} added!`,'success');
-    document.getElementById('f-name').value='';
-    document.getElementById('f-notes').value='';
-    document.getElementById('dup-warning').style.display='none';
-    const defs={closeness:5,family:3,vibes:5,mutual:0,reciprocal:0,frequency:3};
-    Object.entries(defs).forEach(([k,v])=>{document.getElementById('s-'+k).value=v;document.getElementById('v-'+k).textContent=v;});
-    document.getElementById('f-intl').checked=false;
-    updateScorePreview();
-    await loadGuests();
-  }catch(e){showMsg('Error saving guest. Try again.','error');console.error(e);}
-  btn.disabled=false;btn.textContent='Add to list';
-}
-
-// ---- LOAD GUESTS ----
-async function loadGuests(){
-  try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/guests?select=*&order=created_at.desc`,{headers:H});
-    if(!res.ok)throw new Error();
-    allGuests=await res.json();
-    updateStats();
-    renderList();
-    renderReview();
-    renderSeating();
-  }catch(e){
-    document.getElementById('guest-list-container').innerHTML='<div class="msg error">Could not load guests. Check connection.</div>';
-  }
-}
-
-function updateStats(){
-  const tiers=allGuests.map(g=>getTier(computeScore(g)));
-  document.getElementById('stat-total').textContent=allGuests.length;
-  document.getElementById('stat-must').textContent=tiers.filter(t=>t==='must').length;
-  document.getElementById('stat-strong').textContent=tiers.filter(t=>t==='strong').length;
-  document.getElementById('stat-weak').textContent=tiers.filter(t=>t==='weak').length;
-}
-
-// ---- RENDER LIST ----
-function setFilter(f,btn){
-  currentFilter=f;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderList();
-}
-
-function renderList(){
-  const container=document.getElementById('guest-list-container');
-  const search=(document.getElementById('search-input')?.value||'').toLowerCase();
-  let guests=[...allGuests];
-  if(currentFilter!=='all')guests=guests.filter(g=>getTier(computeScore(g))===currentFilter);
-  if(search)guests=guests.filter(g=>g.name.toLowerCase().includes(search)||(g.notes||'').toLowerCase().includes(search));
-  guests.sort((a,b)=>computeScore(b)-computeScore(a));
-  if(!guests.length){container.innerHTML='<div class="empty-state"><div class="empty-icon">∅</div><div>No guests here yet.</div></div>';return;}
-  container.innerHTML=guests.map(g=>{
-    const score=computeScore(g);const tier=getTier(score);
-    const initials=g.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
-    const avatarClass=g.added_by==='oscar'?'avatar-oscar':'avatar-mariana';
-    const adderColor=g.added_by==='oscar'?'var(--burgundy)':'var(--sage)';
-    const adderName=g.added_by==='oscar'?'Oscar':'Mariana';
-    const intlBadge=g.is_international?'<span class="intl-badge">intl</span>':'';
-    const familyBadge=g.guest_type==='family'?'<span class="family-badge">family</span>':'';
-    return`<div class="guest-card">
-      <div class="guest-avatar ${avatarClass}">${initials}</div>
-      <div class="guest-info">
-        <div class="guest-name">${g.name}${intlBadge}${familyBadge}</div>
-        <div class="guest-meta">Added by <span style="color:${adderColor};font-weight:500;">${adderName}</span>${g.notes?' · '+g.notes:''}</div>
-      </div>
-      <div class="score-section">
-        <div class="score-big">${score}</div>
-        <div style="margin-top:4px;"><span class="tier-badge tier-${tier}">${getTierLabel(tier)}</span></div>
-      </div>
-      <div class="guest-actions">
-        <button class="icon-btn" onclick="openEditModal('${g.id}')">Edit</button>
-        <button class="icon-btn del" onclick="deleteGuest('${g.id}','${g.name.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">Delete</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-// ---- REVIEW ----
-function renderReview(){
-  const tiers=['must','strong','weak','no'];
-  const sorted=[...allGuests].sort((a,b)=>computeScore(b)-computeScore(a));
-  let html='';
-  tiers.forEach(tier=>{
-    const guests=sorted.filter(g=>getTier(computeScore(g))===tier);
-    if(!guests.length)return;
-    html+=`<div class="tier-group"><div class="tier-group-header"><span class="tier-badge tier-${tier}">${getTierLabel(tier)}</span><span class="tier-count">${guests.length} guest${guests.length!==1?'s':''}</span></div>
-    ${guests.map(g=>{
-      const score=computeScore(g);
-      const intlBadge=g.is_international?'<span class="intl-badge">intl</span>':'';
-      const familyBadge=g.guest_type==='family'?'<span class="family-badge">family</span>':'';
-      const adderInitial=g.added_by==='oscar'?`<span style="color:var(--burgundy);font-weight:500;font-size:11px;">O</span>`:`<span style="color:var(--sage);font-weight:500;font-size:11px;">M</span>`;
-      return`<div class="review-row"><span class="review-name">${g.name}${intlBadge}${familyBadge}</span><span class="review-notes">${g.notes||''}</span>${adderInitial}<span class="review-score">${score}</span></div>`;
-    }).join('')}</div>`;
-  });
-  if(!html)html='<div class="empty-state"><div class="empty-icon">∅</div><div>No guests yet.</div></div>';
-  document.getElementById('review-content').innerHTML=html;
-}
-
-// ---- DELETE ----
-async function deleteGuest(id,name){
-  if(!confirm(`Remove ${name} from the list?`))return;
-  try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/guests?id=eq.${id}`,{method:'DELETE',headers:H});
-    if(!res.ok)throw new Error();
-    showMsg(`${name} removed.`,'success');
-    await loadGuests();
-  }catch(e){showMsg('Could not remove guest.','error');}
-}
-
-// ---- EDIT MODAL ----
-let editScorer='oscar';
-function openEditModal(id){
-  const g=allGuests.find(x=>x.id===id);
-  if(!g)return;
-  document.getElementById('edit-id').value=g.id;
-  document.getElementById('edit-name').value=g.name;
-  document.getElementById('edit-notes').value=g.notes||'';
-  document.getElementById('edit-type').value=g.guest_type||'friend';
-  document.getElementById('edit-intl').checked=g.is_international||false;
-  const fields={closeness:g.closeness,family:g.family_obligation,vibes:g.vibes,mutual:g.mutual_friend,reciprocal:g.would_invite_us,frequency:g.contact_frequency};
-  Object.entries(fields).forEach(([k,v])=>{document.getElementById('es-'+k).value=v;document.getElementById('ev-'+k).textContent=v;});
-  setEditScorer(g.added_by||'oscar');
-  document.getElementById('edit-modal').style.display='flex';
+function setIdeaAdder(s){
+  ideaAdder=s;
+  document.getElementById('i-oscar-btn').classList.toggle('active',s==='oscar');
+  document.getElementById('i-mariana-btn').classList.toggle('active',s==='mariana');
 }
 function setEditScorer(s){
   editScorer=s;
   document.getElementById('edit-oscar-btn').classList.toggle('active',s==='oscar');
   document.getElementById('edit-mariana-btn').classList.toggle('active',s==='mariana');
 }
-function closeEditModal(e){
-  if(!e||e.target===document.getElementById('edit-modal'))document.getElementById('edit-modal').style.display='none';
+function updateSlider(k){document.getElementById('v-'+k).textContent=document.getElementById('s-'+k).value;updateScorePreview();}
+function updateScorePreview(){
+  const isF=guestType==='family';
+  const g={closeness:+document.getElementById('s-closeness').value,family_obligation:+document.getElementById('s-family').value,vibes:+document.getElementById('s-vibes').value,mutual_friend:+document.getElementById('s-mutual').value,would_invite_us:+document.getElementById('s-reciprocal').value,contact_frequency:+document.getElementById('s-frequency').value,is_international:document.getElementById('f-intl').checked,guest_type:guestType};
+  const score=computeScore(g);const tier=getTier(score);
+  document.getElementById('score-total').textContent=score;
+  const tp=document.getElementById('tier-preview');tp.className='tier-badge tier-'+tier;tp.textContent=getTierLabel(tier);
+  const mb=document.getElementById('family-mult-badge');mb.style.display=isF?'inline-block':'none';
+  document.getElementById('score-breakdown').textContent=`closeness ×2.5 · family ×1.5 · vibes ×1.5 · mutual ×1.0 · reciprocal ×1.5 · freq ×2.0${g.is_international?' · intl ×1.5':''}${isF?' · family ×1.5':''}`;
 }
+function checkDuplicate(){
+  const name=document.getElementById('f-name').value.trim().toLowerCase();
+  const el=document.getElementById('dup-warning');
+  if(!name){el.style.display='none';return;}
+  const m=allGuests.find(g=>g.name.toLowerCase()===name);
+  if(m){el.style.display='block';el.textContent=`⚠️ "${m.name}" is already on the list (added by ${m.added_by}).`;}
+  else el.style.display='none';
+}
+
+async function addGuest(){
+  const name=document.getElementById('f-name').value.trim();
+  if(!name){showMsg('Please enter a guest name.','error');return;}
+  const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Saving...';
+  const p={name,added_by:scorer,scorer,guest_type:guestType,closeness:+document.getElementById('s-closeness').value,family_obligation:+document.getElementById('s-family').value,vibes:+document.getElementById('s-vibes').value,mutual_friend:+document.getElementById('s-mutual').value,would_invite_us:+document.getElementById('s-reciprocal').value,contact_frequency:+document.getElementById('s-frequency').value,is_international:document.getElementById('f-intl').checked,plus_one:document.getElementById('f-plus1').checked,parents_guest:document.getElementById('f-parents').checked,notes:document.getElementById('f-notes').value.trim()||null};
+  try{
+    const res=await fetch(`${SB}/rest/v1/guests`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(p)});
+    if(!res.ok)throw new Error(await res.text());
+    showMsg(`${name} added!`,'success');
+    document.getElementById('f-name').value='';document.getElementById('f-notes').value='';
+    document.getElementById('dup-warning').style.display='none';
+    ['f-plus1','f-intl','f-parents'].forEach(id=>document.getElementById(id).checked=false);
+    const defs={closeness:5,family:3,vibes:5,mutual:0,reciprocal:0,frequency:3};
+    Object.entries(defs).forEach(([k,v])=>{document.getElementById('s-'+k).value=v;document.getElementById('v-'+k).textContent=v;});
+    updateScorePreview();await loadGuests();
+  }catch(e){showMsg('Error saving guest.','error');console.error(e);}
+  btn.disabled=false;btn.textContent='Add to list';
+}
+
+async function loadGuests(){
+  try{
+    const res=await fetch(`${SB}/rest/v1/guests?select=*&order=created_at.desc`,{headers:H});
+    if(!res.ok)throw new Error();
+    allGuests=await res.json();
+    updateStats();renderList();renderReview();renderSeating();
+  }catch(e){document.getElementById('guest-list-container').innerHTML='<div class="msg error">Could not load guests.</div>';}
+}
+function updateStats(){
+  const tiers=allGuests.map(g=>getTier(computeScore(g)));
+  const seats=allGuests.reduce((a,g)=>a+(g.plus_one?2:1),0);
+  document.getElementById('stat-total').textContent=allGuests.length;
+  document.getElementById('stat-must').textContent=tiers.filter(t=>t==='must').length;
+  document.getElementById('stat-strong').textContent=tiers.filter(t=>t==='strong').length;
+  document.getElementById('stat-seats').textContent=seats;
+}
+
+function setFilter(f,btn){gFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderList();}
+function renderList(){
+  const c=document.getElementById('guest-list-container');
+  const s=(document.getElementById('search-input')?.value||'').toLowerCase();
+  let gs=[...allGuests];
+  if(gFilter!=='all')gs=gs.filter(g=>getTier(computeScore(g))===gFilter);
+  if(s)gs=gs.filter(g=>g.name.toLowerCase().includes(s)||(g.notes||'').toLowerCase().includes(s));
+  gs.sort((a,b)=>computeScore(b)-computeScore(a));
+  if(!gs.length){c.innerHTML='<div class="empty-state"><div class="empty-icon">∅</div>No guests here yet.</div>';return;}
+  c.innerHTML=gs.map(g=>{
+    const score=computeScore(g),tier=getTier(score);
+    const init=g.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
+    const av=g.added_by==='oscar'?'avatar-oscar':'avatar-mariana';
+    const addrColor=g.added_by==='oscar'?'var(--burgundy)':'var(--sage)';
+    const tags=[g.guest_type==='family'?'<span class="tag tag-family">family</span>':'',g.is_international?'<span class="tag tag-intl">intl</span>':'',g.parents_guest?'<span class="tag tag-parents">parent\'s</span>':'',g.plus_one?'<span class="tag tag-plus1">+1</span>':''].join('');
+    return`<div class="guest-card"><div class="guest-avatar ${av}">${init}</div><div class="guest-info"><div class="guest-name">${g.name}${tags}</div><div class="guest-meta">Added by <span style="color:${addrColor};font-weight:500;">${g.added_by==='oscar'?'Oscar':'Mariana'}</span>${g.notes?' · '+g.notes:''}</div></div><div class="score-section"><div class="score-big">${score}</div><div style="margin-top:4px;"><span class="tier-badge tier-${tier}">${getTierLabel(tier)}</span></div></div><div class="guest-actions"><button class="icon-btn" onclick="openEditModal('${g.id}')">Edit</button><button class="icon-btn del" onclick="deleteGuest('${g.id}','${g.name.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">Delete</button></div></div>`;
+  }).join('');
+}
+
+function renderReview(){
+  const sorted=[...allGuests].sort((a,b)=>computeScore(b)-computeScore(a));
+  let html='';
+  ['must','strong','weak','no'].forEach(tier=>{
+    const gs=sorted.filter(g=>getTier(computeScore(g))===tier);
+    if(!gs.length)return;
+    const seats=gs.reduce((a,g)=>a+(g.plus_one?2:1),0);
+    html+=`<div class="tier-group"><div class="tier-group-header"><span class="tier-badge tier-${tier}">${getTierLabel(tier)}</span><span style="font-size:12px;color:var(--text-muted)">${gs.length} guests · ${seats} seats</span></div>${gs.map(g=>{
+      const score=computeScore(g);
+      const tags=[g.guest_type==='family'?'<span class="tag tag-family">family</span>':'',g.is_international?'<span class="tag tag-intl">intl</span>':'',g.parents_guest?'<span class="tag tag-parents">parent\'s</span>':'',g.plus_one?'<span class="tag tag-plus1">+1</span>':''].join('');
+      const adder=g.added_by==='oscar'?`<span style="color:var(--burgundy);font-weight:500;font-size:11px;">O</span>`:`<span style="color:var(--sage);font-weight:500;font-size:11px;">M</span>`;
+      return`<div class="review-row"><span class="review-name">${g.name}${tags}</span><span style="font-size:11px;color:var(--text-muted)">${g.notes||''}</span>${adder}<span style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;min-width:32px;text-align:right;">${score}</span></div>`;
+    }).join('')}</div>`;
+  });
+  if(!html)html='<div class="empty-state"><div class="empty-icon">∅</div>No guests yet.</div>';
+  document.getElementById('review-content').innerHTML=html;
+}
+
+async function deleteGuest(id,name){
+  if(!confirm(`Remove ${name}?`))return;
+  try{const res=await fetch(`${SB}/rest/v1/guests?id=eq.${id}`,{method:'DELETE',headers:H});if(!res.ok)throw new Error();showMsg(`${name} removed.`,'success');await loadGuests();}
+  catch(e){showMsg('Could not remove.','error');}
+}
+function openEditModal(id){
+  const g=allGuests.find(x=>x.id===id);if(!g)return;
+  document.getElementById('edit-id').value=g.id;
+  document.getElementById('edit-name').value=g.name;
+  document.getElementById('edit-notes').value=g.notes||'';
+  document.getElementById('edit-type').value=g.guest_type||'friend';
+  document.getElementById('edit-intl').checked=!!g.is_international;
+  document.getElementById('edit-plus1').checked=!!g.plus_one;
+  document.getElementById('edit-parents').checked=!!g.parents_guest;
+  const fs={closeness:g.closeness,family:g.family_obligation,vibes:g.vibes,mutual:g.mutual_friend,reciprocal:g.would_invite_us,frequency:g.contact_frequency};
+  Object.entries(fs).forEach(([k,v])=>{document.getElementById('es-'+k).value=v||0;document.getElementById('ev-'+k).textContent=v||0;});
+  setEditScorer(g.added_by||'oscar');
+  document.getElementById('edit-modal').style.display='flex';
+}
+function closeEditModal(e){if(!e||e.target===document.getElementById('edit-modal'))document.getElementById('edit-modal').style.display='none';}
 async function saveEdit(){
   const id=document.getElementById('edit-id').value;
-  const payload={name:document.getElementById('edit-name').value.trim(),added_by:editScorer,scorer:editScorer,guest_type:document.getElementById('edit-type').value,notes:document.getElementById('edit-notes').value.trim()||null,closeness:+document.getElementById('es-closeness').value,family_obligation:+document.getElementById('es-family').value,vibes:+document.getElementById('es-vibes').value,mutual_friend:+document.getElementById('es-mutual').value,would_invite_us:+document.getElementById('es-reciprocal').value,contact_frequency:+document.getElementById('es-frequency').value,is_international:document.getElementById('edit-intl').checked};
-  try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/guests?id=eq.${id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
-    if(!res.ok)throw new Error(await res.text());
-    document.getElementById('edit-modal').style.display='none';
-    showMsg('Guest updated!','success');
-    await loadGuests();
-  }catch(e){showMsg('Error saving changes.','error');console.error(e);}
+  const p={name:document.getElementById('edit-name').value.trim(),added_by:editScorer,scorer:editScorer,guest_type:document.getElementById('edit-type').value,notes:document.getElementById('edit-notes').value.trim()||null,closeness:+document.getElementById('es-closeness').value,family_obligation:+document.getElementById('es-family').value,vibes:+document.getElementById('es-vibes').value,mutual_friend:+document.getElementById('es-mutual').value,would_invite_us:+document.getElementById('es-reciprocal').value,contact_frequency:+document.getElementById('es-frequency').value,is_international:document.getElementById('edit-intl').checked,plus_one:document.getElementById('edit-plus1').checked,parents_guest:document.getElementById('edit-parents').checked};
+  try{const res=await fetch(`${SB}/rest/v1/guests?id=eq.${id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(p)});if(!res.ok)throw new Error(await res.text());document.getElementById('edit-modal').style.display='none';showMsg('Guest updated!','success');await loadGuests();}
+  catch(e){showMsg('Error saving changes.','error');}
 }
 async function deleteGuestFromModal(){
-  const id=document.getElementById('edit-id').value;
-  const name=document.getElementById('edit-name').value;
-  if(!confirm(`Remove ${name} from the list?`))return;
-  try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/guests?id=eq.${id}`,{method:'DELETE',headers:H});
-    if(!res.ok)throw new Error();
-    document.getElementById('edit-modal').style.display='none';
-    showMsg(`${name} removed.`,'success');
-    await loadGuests();
-  }catch(e){showMsg('Could not remove guest.','error');}
+  const id=document.getElementById('edit-id').value,name=document.getElementById('edit-name').value;
+  if(!confirm(`Remove ${name}?`))return;
+  try{const res=await fetch(`${SB}/rest/v1/guests?id=eq.${id}`,{method:'DELETE',headers:H});if(!res.ok)throw new Error();document.getElementById('edit-modal').style.display='none';showMsg(`${name} removed.`,'success');await loadGuests();}
+  catch(e){showMsg('Could not remove.','error');}
 }
 
-// ---- SEATING ----
-function saveTableSize(){
-  tableSize=parseInt(document.getElementById('table-size').value)||8;
-  localStorage.setItem('tableSize',tableSize);
-}
-
+// SEATING
+function saveTableSize(){tableSize=parseInt(document.getElementById('table-size').value)||8;localStorage.setItem('tableSize',tableSize);}
 function autoArrange(){
   const eligible=allGuests.filter(g=>{const t=getTier(computeScore(g));return t==='must'||t==='strong';});
-  // Sort: Oscar family, Oscar friends, Mariana family, Mariana friends — each subgroup sorted by score desc
+  const seats=[];
+  eligible.forEach(g=>{seats.push(g);if(g.plus_one)seats.push({...g,id:g.id+'_p1',name:g.name+' (+1)',_virtual:true});});
   const groups=[
-    eligible.filter(g=>g.added_by==='oscar'&&g.guest_type==='family').sort((a,b)=>computeScore(b)-computeScore(a)),
-    eligible.filter(g=>g.added_by==='oscar'&&g.guest_type!=='family').sort((a,b)=>computeScore(b)-computeScore(a)),
-    eligible.filter(g=>g.added_by==='mariana'&&g.guest_type==='family').sort((a,b)=>computeScore(b)-computeScore(a)),
-    eligible.filter(g=>g.added_by==='mariana'&&g.guest_type!=='family').sort((a,b)=>computeScore(b)-computeScore(a)),
+    seats.filter(g=>g.added_by==='oscar'&&g.guest_type==='family').sort((a,b)=>computeScore(b)-computeScore(a)),
+    seats.filter(g=>g.added_by==='oscar'&&g.guest_type!=='family').sort((a,b)=>computeScore(b)-computeScore(a)),
+    seats.filter(g=>g.added_by==='mariana'&&g.guest_type==='family').sort((a,b)=>computeScore(b)-computeScore(a)),
+    seats.filter(g=>g.added_by==='mariana'&&g.guest_type!=='family').sort((a,b)=>computeScore(b)-computeScore(a)),
   ];
-  const ordered=groups.flat();
-  seatingArrangement=[];
-  let tableNum=1;
-  for(let i=0;i<ordered.length;i+=tableSize){
-    seatingArrangement.push({id:'table-'+tableNum,name:'Table '+tableNum,guests:ordered.slice(i,i+tableSize).map(g=>g.id)});
-    tableNum++;
-  }
+  const ordered=groups.flat();seating=[];
+  for(let i=0,n=1;i<ordered.length;i+=tableSize,n++)seating.push({id:'t'+n,name:'Table '+n,guests:ordered.slice(i,i+tableSize).map(g=>g.id)});
   renderSeatingBoard();
 }
-
 function renderSeating(){
-  if(seatingArrangement.length===0){
-    document.getElementById('seating-board').innerHTML='<div class="empty-state"><div class="empty-icon">∅</div><div>Click "Auto-arrange" to generate a seating suggestion,<br>then drag and drop to adjust.</div></div>';
-    return;
-  }
+  if(!seating.length){document.getElementById('seating-board').innerHTML='<div class="empty-state"><div class="empty-icon">∅</div>Click "Auto-arrange" to get started.</div>';return;}
   renderSeatingBoard();
 }
-
 function renderSeatingBoard(){
   const board=document.getElementById('seating-board');
-  const assignedIds=new Set(seatingArrangement.flatMap(t=>t.guests));
-  const unassigned=allGuests.filter(g=>!assignedIds.has(g.id)&&(getTier(computeScore(g))==='must'||getTier(computeScore(g))==='strong'));
-
+  const assigned=new Set(seating.flatMap(t=>t.guests));
+  const unassigned=allGuests.filter(g=>!assigned.has(g.id)&&(getTier(computeScore(g))==='must'||getTier(computeScore(g))==='strong'));
   let html='';
-  if(unassigned.length){
-    html+=`<div class="unassigned-pool" id="pool-unassigned">
-      <div class="unassigned-title">Unassigned guests (${unassigned.length})</div>
-      <div class="table-drop-zone" id="drop-unassigned" ondragover="dragOver(event)" ondrop="dropGuest(event,'unassigned')" ondragleave="dragLeave(event)">
-        ${unassigned.map(g=>seatItem(g)).join('')}
-      </div>
-    </div>`;
-  }
-
-  html+=`<div class="tables-grid">`;
-  seatingArrangement.forEach(table=>{
-    const tableGuests=table.guests.map(id=>allGuests.find(g=>g.id===id)).filter(Boolean);
-    html+=`<div class="table-card" id="tcard-${table.id}">
-      <div class="table-header">
-        <span class="table-name">${table.name}</span>
-        <span class="table-count">${tableGuests.length}/${tableSize} guests</span>
-      </div>
-      <div class="table-drop-zone" id="drop-${table.id}" ondragover="dragOver(event)" ondrop="dropGuest(event,'${table.id}')" ondragleave="dragLeave(event)">
-        ${tableGuests.map(g=>seatItem(g)).join('')}
-      </div>
-    </div>`;
-  });
-  html+=`</div>`;
+  if(unassigned.length)html+=`<div class="unassigned-pool"><div class="unassigned-title">Unassigned (${unassigned.length})</div><div class="table-drop-zone" id="drop-unassigned" ondragover="dOver(event)" ondrop="dDrop(event,'unassigned')" ondragleave="dLeave(event)">${unassigned.map(seatItem).join('')}</div></div>`;
+  html+=`<div class="tables-grid">${seating.map(t=>{const tg=t.guests.map(id=>allGuests.find(g=>g.id===id)).filter(Boolean);return`<div class="table-card"><div class="table-header"><span class="table-name">${t.name}</span><span class="table-count">${tg.length}/${tableSize}</span></div><div class="table-drop-zone" id="drop-${t.id}" ondragover="dOver(event)" ondrop="dDrop(event,'${t.id}')" ondragleave="dLeave(event)">${tg.map(seatItem).join('')}</div></div>`;}).join('')}</div>`;
   board.innerHTML=html;
 }
-
 function seatItem(g){
-  const avatarClass=g.added_by==='oscar'?'avatar-oscar':'avatar-mariana';
-  const initials=g.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
-  const score=computeScore(g);
-  return`<div class="seat-item" draggable="true" data-id="${g.id}" ondragstart="dragStart(event,'${g.id}')" ondragend="dragEnd(event)">
-    <div class="seat-avatar ${avatarClass}">${initials}</div>
-    <span style="flex:1;font-size:13px;">${g.name}</span>
-    <span style="font-size:11px;color:var(--text-muted);">${score}</span>
-  </div>`;
+  const av=g.added_by==='oscar'?'avatar-oscar':'avatar-mariana';
+  const init=g.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
+  return`<div class="seat-item" draggable="true" ondragstart="dStart(event,'${g.id}')" ondragend="dEnd(event)"><div class="seat-avatar ${av}">${init}</div><span style="flex:1">${g.name}${g.plus_one?'<span class="tag tag-plus1">+1</span>':''}</span><span style="font-size:11px;color:var(--text-muted)">${computeScore(g)}</span></div>`;
 }
-
-function dragStart(e,id){
-  draggedGuest=id;
-  dragSourceTable=e.currentTarget.closest('.table-drop-zone').id.replace('drop-','');
-  e.currentTarget.classList.add('dragging');
-  e.dataTransfer.effectAllowed='move';
+function dStart(e,id){dragId=id;dragSrc=e.currentTarget.closest('.table-drop-zone').id.replace('drop-','');e.currentTarget.classList.add('dragging');e.dataTransfer.effectAllowed='move';}
+function dEnd(e){e.currentTarget.classList.remove('dragging');}
+function dOver(e){e.preventDefault();e.currentTarget.classList.add('drag-over');}
+function dLeave(e){e.currentTarget.classList.remove('drag-over');}
+function dDrop(e,tgt){
+  e.preventDefault();e.currentTarget.classList.remove('drag-over');
+  if(!dragId||dragSrc===tgt)return;
+  if(dragSrc!=='unassigned'){const s=seating.find(t=>t.id===dragSrc);if(s)s.guests=s.guests.filter(id=>id!==dragId);}
+  if(tgt!=='unassigned'){const t=seating.find(t=>t.id===tgt);if(t&&!t.guests.includes(dragId))t.guests.push(dragId);}
+  dragId=null;dragSrc=null;renderSeatingBoard();
 }
-function dragEnd(e){e.currentTarget.classList.remove('dragging');}
-function dragOver(e){e.preventDefault();e.currentTarget.classList.add('drag-over');}
-function dragLeave(e){e.currentTarget.classList.remove('drag-over');}
+async function saveSeating(){localStorage.setItem('seating',JSON.stringify({s:seating,ts:tableSize}));showMsg('Seating saved!','success');}
 
-function dropGuest(e,targetTableId){
-  e.preventDefault();
-  e.currentTarget.classList.remove('drag-over');
-  if(!draggedGuest||dragSourceTable===targetTableId)return;
-
-  // Remove from source
-  if(dragSourceTable!=='unassigned'){
-    const src=seatingArrangement.find(t=>t.id===dragSourceTable);
-    if(src)src.guests=src.guests.filter(id=>id!==draggedGuest);
-  }
-  // Add to target
-  if(targetTableId!=='unassigned'){
-    const tgt=seatingArrangement.find(t=>t.id===targetTableId);
-    if(tgt&&!tgt.guests.includes(draggedGuest))tgt.guests.push(draggedGuest);
-  }
-  draggedGuest=null;
-  dragSourceTable=null;
-  renderSeatingBoard();
-}
-
-async function saveSeating(){
+// BUDGET
+async function loadBudget(){
   try{
-    const data=JSON.stringify({arrangement:seatingArrangement,tableSize,savedAt:new Date().toISOString()});
-    localStorage.setItem('seatingArrangement',data);
-    showMsg('Seating arrangement saved!','success');
-  }catch(e){showMsg('Could not save arrangement.','error');}
+    const res=await fetch(`${SB}/rest/v1/budget?select=*`,{headers:H});
+    if(!res.ok)throw new Error();
+    const rows=await res.json();
+    budgetData={};rows.forEach(r=>{budgetData[r.category]={id:r.id,estimated:r.estimated||0,actual:r.actual||0,notes:r.notes||''};});
+    renderBudget();
+  }catch(e){renderBudget();}
 }
-
-function loadSavedSeating(){
+function renderBudget(){
+  const est=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.estimated||0),0);
+  const act=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.actual||0),0);
+  const pct=est>0?Math.min((act/est)*100,100):0;
+  const bc=pct>90?'burn-over':pct>70?'burn-warn':'burn-ok';
+  document.getElementById('budget-summary').innerHTML=`<div class="budget-total-card"><div class="budget-total-label">Total budget</div><div class="budget-total-num">${fmt(est)}</div><div style="font-size:12px;color:var(--gold);margin-top:2px;">Spent: ${fmt(act)} &nbsp;·&nbsp; Remaining: ${fmt(est-act)}</div><div class="budget-burn-bar"><div class="budget-burn-fill ${bc}" style="width:${pct.toFixed(1)}%"></div></div></div>`;
+  document.getElementById('budget-tbody').innerHTML=BUDGET_CATS.map(cat=>{
+    const d=budgetData[cat]||{estimated:0,actual:0,notes:''};
+    const diff=(d.actual||0)-(d.estimated||0);
+    const diffStr=diff===0?'—':diff>0?`<span style="color:var(--no)">+${fmt(diff)}</span>`:`<span style="color:var(--must)">${fmt(diff)}</span>`;
+    const st=d.actual>0&&d.estimated>0?(d.actual>d.estimated?'<span class="bstatus bover">Over</span>':'<span class="bstatus bok">On track</span>'):'<span class="bstatus bpending">—</span>';
+    return`<tr><td><strong>${cat}</strong>${st}</td><td><input type="number" data-cat="${cat}" data-f="estimated" value="${d.estimated||''}" placeholder="0" oninput="ubLocal(this)"></td><td><input type="number" data-cat="${cat}" data-f="actual" value="${d.actual||''}" placeholder="0" oninput="ubLocal(this)"></td><td style="text-align:right;white-space:nowrap">${diffStr}</td><td><input type="text" data-cat="${cat}" data-f="notes" value="${d.notes||''}" placeholder="notes..." oninput="ubLocal(this)"></td></tr>`;
+  }).join('');
+}
+function ubLocal(el){
+  const cat=el.dataset.cat,f=el.dataset.f;
+  if(!budgetData[cat])budgetData[cat]={estimated:0,actual:0,notes:''};
+  budgetData[cat][f]=f==='notes'?el.value:parseFloat(el.value)||0;
+  const est=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.estimated||0),0);
+  const act=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.actual||0),0);
+  const pct=est>0?Math.min((act/est)*100,100):0;
+  const bc=pct>90?'burn-over':pct>70?'burn-warn':'burn-ok';
+  document.getElementById('budget-summary').innerHTML=`<div class="budget-total-card"><div class="budget-total-label">Total budget</div><div class="budget-total-num">${fmt(est)}</div><div style="font-size:12px;color:var(--gold);margin-top:2px;">Spent: ${fmt(act)} &nbsp;·&nbsp; Remaining: ${fmt(est-act)}</div><div class="budget-burn-bar"><div class="budget-burn-fill ${bc}" style="width:${pct.toFixed(1)}%"></div></div></div>`;
+}
+async function saveBudget(){
   try{
-    const saved=localStorage.getItem('seatingArrangement');
-    if(saved){const d=JSON.parse(saved);seatingArrangement=d.arrangement||[];tableSize=d.tableSize||8;document.getElementById('table-size').value=tableSize;}
-    const savedSize=localStorage.getItem('tableSize');
-    if(savedSize)tableSize=parseInt(savedSize);
-  }catch(e){}
+    for(const cat of BUDGET_CATS){
+      const d=budgetData[cat];if(!d||(!d.estimated&&!d.actual&&!d.notes))continue;
+      const p={category:cat,estimated:d.estimated||0,actual:d.actual||0,notes:d.notes||null,updated_at:new Date().toISOString()};
+      if(d.id){await fetch(`${SB}/rest/v1/budget?id=eq.${d.id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(p)});}
+      else{const r=await fetch(`${SB}/rest/v1/budget`,{method:'POST',headers:{...H,'Prefer':'return=representation'},body:JSON.stringify(p)});if(r.ok){const rows=await r.json();if(rows[0])budgetData[cat].id=rows[0].id;}}
+    }
+    showMsg('Budget saved!','success');await loadBudget();
+  }catch(e){showMsg('Error saving budget.','error');console.error(e);}
 }
 
-// ---- SETTINGS ----
+// VENDORS
+async function loadVendors(){
+  try{const res=await fetch(`${SB}/rest/v1/vendors?select=*&order=created_at.desc`,{headers:H});if(!res.ok)throw new Error();allVendors=await res.json();renderVendors();}
+  catch(e){document.getElementById('vendor-list').innerHTML='<div class="msg error">Could not load vendors.</div>';}
+}
+function setVendorFilter(f,btn){vFilter=f;document.querySelectorAll('.pipeline-stage').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderVendors();}
+function renderVendors(){
+  const list=document.getElementById('vendor-list');
+  let vs=[...allVendors];if(vFilter!=='all')vs=vs.filter(v=>v.status===vFilter);
+  if(!vs.length){list.innerHTML='<div class="empty-state"><div class="empty-icon">∅</div>No vendors here yet.</div>';return;}
+  list.innerHTML=vs.map(v=>{
+    const price=v.agreed>0?`Agreed: ${fmt(v.agreed)}`:v.quoted>0?`Quoted: ${fmt(v.quoted)}`:'';
+    return`<div class="vendor-card"><div class="vendor-header"><div><div class="vendor-name">${v.name||'Unnamed'}</div><div class="vendor-cat">${v.category}</div></div><div style="display:flex;align-items:center;gap:8px;"><span class="vstatus vs-${v.status}">${STATUS_LABELS[v.status]||v.status}</span><button class="icon-btn" onclick="openVendorModal('${v.id}')">Edit</button></div></div>${price?`<div class="vendor-meta">${price}</div>`:''}${v.contact?`<div class="vendor-meta">${v.contact}</div>`:''}${v.notes?`<div class="vendor-meta">${v.notes}</div>`:''}</div>`;
+  }).join('');
+}
+async function addVendor(){
+  const p={category:document.getElementById('v-cat').value,name:document.getElementById('v-name').value.trim()||null,contact:document.getElementById('v-contact').value.trim()||null,status:document.getElementById('v-status').value,quoted:parseFloat(document.getElementById('v-quoted').value)||0,agreed:parseFloat(document.getElementById('v-agreed').value)||0,notes:document.getElementById('v-notes').value.trim()||null};
+  try{const res=await fetch(`${SB}/rest/v1/vendors`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(p)});if(!res.ok)throw new Error();showMsg('Vendor added!','success');['v-name','v-contact','v-quoted','v-agreed','v-notes'].forEach(id=>document.getElementById(id).value='');await loadVendors();}
+  catch(e){showMsg('Error adding vendor.','error');}
+}
+function openVendorModal(id){
+  const v=allVendors.find(x=>x.id===id);if(!v)return;
+  document.getElementById('ve-id').value=v.id;document.getElementById('ve-cat').value=v.category;document.getElementById('ve-name').value=v.name||'';document.getElementById('ve-contact').value=v.contact||'';document.getElementById('ve-status').value=v.status;document.getElementById('ve-quoted').value=v.quoted||'';document.getElementById('ve-agreed').value=v.agreed||'';document.getElementById('ve-notes').value=v.notes||'';
+  document.getElementById('vendor-modal').style.display='flex';
+}
+function closeVendorModal(e){if(!e||e.target===document.getElementById('vendor-modal'))document.getElementById('vendor-modal').style.display='none';}
+async function saveVendorEdit(){
+  const id=document.getElementById('ve-id').value;
+  const p={category:document.getElementById('ve-cat').value,name:document.getElementById('ve-name').value.trim()||null,contact:document.getElementById('ve-contact').value.trim()||null,status:document.getElementById('ve-status').value,quoted:parseFloat(document.getElementById('ve-quoted').value)||0,agreed:parseFloat(document.getElementById('ve-agreed').value)||0,notes:document.getElementById('ve-notes').value.trim()||null};
+  try{const res=await fetch(`${SB}/rest/v1/vendors?id=eq.${id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(p)});if(!res.ok)throw new Error();document.getElementById('vendor-modal').style.display='none';showMsg('Vendor updated!','success');await loadVendors();}
+  catch(e){showMsg('Error saving vendor.','error');}
+}
+async function deleteVendor(){
+  const id=document.getElementById('ve-id').value,name=document.getElementById('ve-name').value||'this vendor';
+  if(!confirm(`Remove ${name}?`))return;
+  try{const res=await fetch(`${SB}/rest/v1/vendors?id=eq.${id}`,{method:'DELETE',headers:H});if(!res.ok)throw new Error();document.getElementById('vendor-modal').style.display='none';showMsg('Vendor removed.','success');await loadVendors();}
+  catch(e){showMsg('Could not remove vendor.','error');}
+}
+
+// IDEAS
+async function loadIdeas(){
+  try{const res=await fetch(`${SB}/rest/v1/ideas?select=*&order=created_at.desc`,{headers:H});if(!res.ok)throw new Error();allIdeas=await res.json();renderIdeas();}
+  catch(e){document.getElementById('ideas-container').innerHTML='<div class="msg error">Could not load ideas.</div>';}
+}
+function renderIdeas(){
+  const c=document.getElementById('ideas-container');
+  if(!allIdeas.length){c.innerHTML='<div class="empty-state"><div class="empty-icon">∅</div>No ideas yet — drop your first one above.</div>';return;}
+  c.innerHTML=`<div class="ideas-grid">${allIdeas.map(i=>{
+    const addrColor=i.added_by==='oscar'?'var(--burgundy)':'var(--sage)';
+    const date=new Date(i.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    return`<div class="idea-card"><span class="idea-cat cat-${i.category}">${CAT_LABELS[i.category]||i.category}</span><div class="idea-text">${i.content}</div><div class="idea-footer"><span class="idea-by"><span style="color:${addrColor};font-weight:500;">${i.added_by==='oscar'?'Oscar':'Mariana'}</span> · ${date}</span><button class="idea-del" onclick="deleteIdea('${i.id}')">×</button></div></div>`;
+  }).join('')}</div>`;
+}
+async function addIdea(){
+  const content=document.getElementById('i-text').value.trim();
+  if(!content){showMsg('Write something first.','error');return;}
+  try{const res=await fetch(`${SB}/rest/v1/ideas`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify({content,category:document.getElementById('i-cat').value,added_by:ideaAdder})});if(!res.ok)throw new Error();document.getElementById('i-text').value='';showMsg('Idea saved!','success');await loadIdeas();}
+  catch(e){showMsg('Error saving idea.','error');}
+}
+async function deleteIdea(id){
+  try{const res=await fetch(`${SB}/rest/v1/ideas?id=eq.${id}`,{method:'DELETE',headers:H});if(!res.ok)throw new Error();await loadIdeas();}
+  catch(e){showMsg('Could not delete.','error');}
+}
+
 function saveThresholds(){
   thresholds.must=parseInt(document.getElementById('t-must').value)||75;
   thresholds.strong=parseInt(document.getElementById('t-strong').value)||50;
@@ -817,18 +822,23 @@ function saveThresholds(){
   updateStats();renderList();renderReview();
 }
 
-// ---- TABS ----
 function switchTab(tab,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('panel-'+tab).classList.add('active');
-  if(tab==='list'||tab==='review'||tab==='seating')loadGuests();
+  btn.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');
+  if(['list','review','seating'].includes(tab))loadGuests();
+  if(tab==='budget')loadBudget();
+  if(tab==='vendors')loadVendors();
+  if(tab==='ideas')loadIdeas();
 }
 
-// ---- INIT ----
+function initSeating(){
+  try{const d=localStorage.getItem('seating');if(d){const p=JSON.parse(d);seating=p.s||[];tableSize=p.ts||8;document.getElementById('table-size').value=tableSize;}}catch(e){}
+  const sz=localStorage.getItem('tableSize');if(sz)tableSize=parseInt(sz);
+}
+
 updateScorePreview();
-loadSavedSeating();
+initSeating();
 loadGuests();
 </script>
 </body>
