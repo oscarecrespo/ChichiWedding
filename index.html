@@ -37,10 +37,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .stat-card{background:white;border:0.5px solid var(--border);border-radius:10px;padding:12px 14px;}
 .stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;}
+.stat-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
 .stat-num.t1c{color:var(--t1);}
 .stat-num.t2c{color:var(--t2);}
 
-/* TABS — equally spaced, centered */
 .tabs-wrapper{margin-bottom:1.5rem;}
 .tabs{display:flex;background:white;border:0.5px solid var(--border);border-radius:10px;padding:4px;}
 .tab{flex:1;padding:8px 4px;border:none;background:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:400;color:var(--text-muted);cursor:pointer;transition:all 0.15s;white-space:nowrap;text-align:center;}
@@ -62,6 +62,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--burgundy-mid);}
 .form-group textarea{resize:vertical;min-height:70px;}
 
+/* Plus guests stepper */
+.plus-stepper{display:flex;align-items:center;gap:10px;}
+.plus-stepper button{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border);background:white;cursor:pointer;font-size:18px;line-height:1;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all 0.12s;flex-shrink:0;}
+.plus-stepper button:hover{border-color:var(--sage);color:var(--sage);}
+.plus-stepper .plus-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;min-width:32px;text-align:center;color:var(--text);}
+.plus-stepper .plus-label{font-size:12px;color:var(--text-muted);}
+
 .checks-row{display:flex;flex-wrap:wrap;gap:16px;margin:1rem 0;padding:12px 0;border-top:0.5px solid var(--border);}
 .check-item{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text);}
 .check-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--sage);cursor:pointer;flex-shrink:0;}
@@ -80,8 +87,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .criteria-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
 .criteria-name{font-size:12px;font-weight:500;}
 .criteria-val{font-size:14px;font-weight:500;color:var(--burgundy);}
-
-/* 1-5 pip selector */
 .pip-row{display:flex;gap:6px;}
 .pip{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border);background:white;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all 0.12s;flex-shrink:0;}
 .pip.active{background:var(--burgundy);border-color:var(--burgundy);color:white;}
@@ -102,7 +107,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .btn-danger{background:var(--t5-bg);color:var(--t5);}
 .btn-full{width:100%;padding:13px;font-size:14px;}
 
-/* TIER BADGES */
 .tier-badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap;display:inline-block;}
 .tier-1{background:var(--t1-bg);color:var(--t1);}
 .tier-2{background:var(--t2-bg);color:var(--t2);}
@@ -110,17 +114,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .tier-4{background:var(--t4-bg);color:var(--t4);}
 .tier-5{background:var(--t5-bg);color:var(--t5);}
 
-/* TAGS */
 .tag{font-size:10px;padding:1px 7px;border-radius:10px;margin-left:3px;vertical-align:middle;display:inline-block;}
 .tag-intl{background:#e8f4fd;color:#1a6a9a;}
 .tag-parents{background:#f3e8fd;color:#6a1a9a;}
 .tag-family{background:#fde8f3;color:#9a1a6a;}
-.tag-plus1{background:#fdf3e8;color:#9a6a1a;}
+.tag-plus{background:#fdf3e8;color:#9a6a1a;}
 .tag-wp{background:#e8fdf3;color:#1a7a4a;}
 .tag-bm{background:#1a1a1a;color:#fff;font-size:11px;padding:2px 8px;}
 .tag-moh{background:#f9e8fd;color:#7a1a9a;font-size:11px;padding:2px 8px;}
 
-/* GUEST LIST */
 .list-controls{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:center;}
 .filter-btn{padding:6px 14px;border:0.5px solid var(--border);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;background:white;color:var(--text-muted);transition:all 0.15s;}
 .filter-btn.active{background:var(--text);color:white;border-color:var(--text);}
@@ -140,13 +142,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .score-section{text-align:right;flex-shrink:0;}
 .score-big{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;}
 
-/* REVIEW */
 .tier-group{margin-bottom:1.5rem;}
 .tier-group-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-bottom:6px;border-bottom:0.5px solid var(--border);}
 .review-row{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:0.5px solid var(--border);}
 .review-name{font-size:13px;flex:1;font-weight:500;}
 
-/* SEATING */
 .seating-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:1.2rem;}
 .seating-controls label{font-size:13px;color:var(--text-muted);}
 .seating-controls input[type=number]{width:60px;padding:6px 10px;border:0.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);color:var(--text);outline:none;}
@@ -164,7 +164,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .unassigned-pool{background:white;border:0.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1.5rem;}
 .unassigned-title{font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
 
-/* BUDGET */
 .budget-total-card{background:var(--gold-light);border:1px solid #e8d5b0;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.5rem;}
 .budget-total-label{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
 .budget-total-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;color:var(--gold);}
@@ -182,7 +181,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .bok{background:var(--t1-bg);color:var(--t1);}
 .bpending{background:#f0f0f0;color:var(--text-muted);}
 
-/* VENDORS */
 .vendor-pipeline{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem;}
 .pipeline-stage{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--border);background:white;color:var(--text-muted);transition:all 0.15s;}
 .pipeline-stage.active{background:var(--text);color:white;border-color:var(--text);}
@@ -199,7 +197,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .vs-deposit{background:var(--sage-light);color:var(--sage);}
 .vs-paid{background:var(--t1-bg);color:var(--t1);}
 
-/* IDEAS */
 .ideas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:1rem;}
 .idea-card{background:white;border:0.5px solid var(--border);border-radius:10px;padding:14px 16px;}
 .idea-cat{font-size:10px;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px;font-weight:500;}
@@ -215,7 +212,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .idea-del{background:none;border:none;color:#ccc;cursor:pointer;font-size:18px;line-height:1;}
 .idea-del:hover{color:#c00;}
 
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
 .modal{background:white;border-radius:14px;padding:1.5rem;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;}
 .modal-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;margin-bottom:1.2rem;}
@@ -223,12 +219,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .modal-actions .btn{flex:1;}
 .dup-warning{background:#fff8e1;border:1px solid #f0c040;border-radius:8px;padding:10px 14px;font-size:13px;color:#7a5c00;margin-bottom:1rem;}
 
-.threshold-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
-.threshold-input{width:70px;padding:6px 10px;border:0.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);color:var(--text);}
 .weights-table{width:100%;font-size:13px;border-collapse:collapse;}
 .weights-table td{padding:6px 4px;border-bottom:0.5px solid var(--border);}
 .weights-table tr:last-child td{border-bottom:none;font-weight:500;}
 .weights-table td:last-child{text-align:right;color:var(--text-muted);}
+
+.tier-info-row{display:flex;align-items:center;gap:8px;padding:5px 0;}
+.dynamic-info{background:var(--sage-light);border:1px solid var(--sage-mid);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--sage);margin-bottom:1rem;}
 
 .msg{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:1rem;}
 .msg.success{background:var(--t1-bg);color:var(--t1);}
@@ -237,10 +234,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 .empty-state{text-align:center;padding:3rem;color:var(--text-muted);font-size:14px;}
 .empty-icon{font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:8px;}
 .divider{height:0.5px;background:var(--border);margin:1rem 0;}
-
-/* TIER INFO BOX */
-.tier-info{background:white;border:0.5px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:1rem;font-size:12px;}
-.tier-info-row{display:flex;align-items:center;gap:8px;padding:4px 0;}
 
 @media(max-width:600px){
   .form-row,.form-row.three{grid-template-columns:1fr;}
@@ -261,10 +254,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
   </div>
   <div id="msg-area"></div>
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-label">Total guests</div><div class="stat-num" id="stat-total">—</div></div>
-    <div class="stat-card"><div class="stat-label">Must</div><div class="stat-num t1c" id="stat-must">—</div></div>
-    <div class="stat-card"><div class="stat-label">Strong case</div><div class="stat-num t2c" id="stat-strong">—</div></div>
-    <div class="stat-card"><div class="stat-label">Seats needed</div><div class="stat-num" id="stat-seats">—</div></div>
+    <div class="stat-card"><div class="stat-label">Total guests</div><div class="stat-num" id="stat-total">—</div><div class="stat-sub" id="stat-total-seats"></div></div>
+    <div class="stat-card"><div class="stat-label">Must</div><div class="stat-num t1c" id="stat-must">—</div><div class="stat-sub" id="stat-must-seats"></div></div>
+    <div class="stat-card"><div class="stat-label">Strong case</div><div class="stat-num t2c" id="stat-strong">—</div><div class="stat-sub" id="stat-strong-seats"></div></div>
+    <div class="stat-card"><div class="stat-label">Total seats</div><div class="stat-num" id="stat-seats">—</div><div class="stat-sub" id="stat-elim-pct"></div></div>
   </div>
 
   <div class="tabs-wrapper">
@@ -280,7 +273,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ ADD GUEST -->
+  <!-- ADD GUEST -->
   <div class="panel active" id="panel-add">
     <div class="card">
       <div class="card-title">Add a guest</div>
@@ -295,48 +288,35 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
       </div>
 
       <div class="criteria-grid">
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Closeness</span><span class="criteria-val" id="v-closeness">3</span></div>
-          <div class="pip-row" id="pip-closeness"></div>
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Family obligation</span><span class="criteria-val" id="v-family">3</span></div>
-          <div class="pip-row" id="pip-family"></div>
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Vibes ✨</span><span class="criteria-val" id="v-vibes">3</span></div>
-          <div class="pip-row" id="pip-vibes"></div>
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Mutual friend</span><span class="criteria-val" id="v-mutual">1</span></div>
-          <div class="pip-row" id="pip-mutual"></div>
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="v-reciprocal">1</span></div>
-          <div class="pip-row" id="pip-reciprocal"></div>
-        </div>
-        <div class="criteria-item">
-          <div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="v-frequency">3</span></div>
-          <div class="pip-row" id="pip-frequency"></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Closeness</span><span class="criteria-val" id="v-closeness">3</span></div><div class="pip-row" id="pip-closeness"></div></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Family obligation</span><span class="criteria-val" id="v-family">3</span></div><div class="pip-row" id="pip-family"></div></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Vibes ✨</span><span class="criteria-val" id="v-vibes">3</span></div><div class="pip-row" id="pip-vibes"></div></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Mutual friend</span><span class="criteria-val" id="v-mutual">1</span></div><div class="pip-row" id="pip-mutual"></div></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="v-reciprocal">1</span></div><div class="pip-row" id="pip-reciprocal"></div></div>
+        <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="v-frequency">3</span></div><div class="pip-row" id="pip-frequency"></div></div>
+      </div>
+
+      <!-- Plus guests stepper -->
+      <div style="padding:12px 0;border-top:0.5px solid var(--border);margin-top:4px;">
+        <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:10px;">Plus guests</div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div class="plus-stepper">
+            <button type="button" onclick="changePlus(-1)">−</button>
+            <span class="plus-val" id="plus-val">0</span>
+            <button type="button" onclick="changePlus(1)">+</button>
+          </div>
+          <span class="plus-label" id="plus-label" style="font-size:13px;color:var(--text-muted);">No additional guests</span>
         </div>
       </div>
 
       <div class="checks-row">
-        <label class="check-item"><input type="checkbox" id="f-plus1" /><span>+1 guest <span style="font-size:11px;color:var(--text-muted)">(2 seats)</span></span></label>
         <label class="check-item"><input type="checkbox" id="f-intl" onchange="updateScorePreview()" /><span>International <span style="font-size:11px;color:var(--text-muted)">(freq ×1.5)</span></span></label>
         <label class="check-item"><input type="checkbox" id="f-parents" /><span>Parent's guest</span></label>
         <label class="check-item"><input type="checkbox" id="f-wp" /><span>Wedding party</span></label>
       </div>
 
       <div class="form-row full" style="margin-bottom:0;">
-        <div class="form-group">
-          <label>Special role</label>
-          <select id="f-role">
-            <option value="">None</option>
-            <option value="best_man">✈️ Best Man</option>
-            <option value="maid_of_honor">🎀 Maid of Honor</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Special role</label><select id="f-role"><option value="">None</option><option value="best_man">✈️ Best Man</option><option value="maid_of_honor">🎀 Maid of Honor</option></select></div>
       </div>
 
       <div class="score-preview" style="margin-top:1rem;">
@@ -354,9 +334,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ GUEST LIST -->
+  <!-- GUEST LIST -->
   <div class="panel" id="panel-list">
-    <div class="tier-info" id="tier-info-bar"></div>
+    <div id="dynamic-info-bar"></div>
+    <div id="tier-info-bar" style="background:white;border:0.5px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:1rem;font-size:12px;"></div>
     <div class="list-controls">
       <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
       <button class="filter-btn" onclick="setFilter('1',this)">Must</button>
@@ -369,7 +350,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     <div class="guest-list" id="guest-list-container"><div class="loading">Loading...</div></div>
   </div>
 
-  <!-- ═══════════════════════════════════════ REVIEW -->
+  <!-- REVIEW -->
   <div class="panel" id="panel-review">
     <div class="card">
       <div class="card-title">Review session</div>
@@ -378,11 +359,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ SEATING -->
+  <!-- SEATING -->
   <div class="panel" id="panel-seating">
     <div class="card">
       <div class="card-title">Seating arrangement</div>
-      <div class="card-subtitle">Must + Strong Case guests. Drag and drop to adjust.</div>
+      <div class="card-subtitle">Must + Strong Case guests. Each +guest counts as an additional seat. Drag to adjust.</div>
       <div class="seating-controls">
         <label>Per table:</label>
         <input type="number" id="table-size" value="8" min="2" max="20" onchange="saveTableSize()" />
@@ -393,7 +374,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ BUDGET -->
+  <!-- BUDGET -->
   <div class="panel" id="panel-budget">
     <div class="card">
       <div class="card-title">Budget tracker</div>
@@ -412,7 +393,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ VENDORS -->
+  <!-- VENDORS -->
   <div class="panel" id="panel-vendors">
     <div class="card">
       <div class="card-title">Add vendor</div>
@@ -426,7 +407,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
         <div class="form-group"><label>Quote ($)</label><input type="number" id="v-quoted" placeholder="0" /></div>
         <div class="form-group"><label>Agreed price ($)</label><input type="number" id="v-agreed" placeholder="0" /></div>
       </div>
-      <div class="form-row full"><div class="form-group"><label>Notes</label><input type="text" id="v-notes" placeholder="e.g. includes 8hr coverage, 2nd shooter extra" /></div></div>
+      <div class="form-row full"><div class="form-group"><label>Notes</label><input type="text" id="v-notes" placeholder="e.g. 8hr coverage, 2nd shooter extra" /></div></div>
       <button class="btn btn-primary" onclick="addVendor()">Add vendor</button>
     </div>
     <div class="card">
@@ -444,7 +425,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ IDEAS -->
+  <!-- IDEAS -->
   <div class="panel" id="panel-ideas">
     <div class="card">
       <div class="card-title">Drop an idea</div>
@@ -452,30 +433,35 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
         <div class="form-group"><label>Category</label><select id="i-cat"><option value="venue">Venue</option><option value="florals">Florals</option><option value="music">Music</option><option value="food">Food & drinks</option><option value="decor">Decor</option><option value="other">Other</option></select></div>
         <div class="form-group"><label>Adding as</label><div class="scorer-toggle"><button class="scorer-btn oscar active" id="i-oscar-btn" onclick="setIdeaAdder('oscar')">Oscar</button><button class="scorer-btn mariana" id="i-mariana-btn" onclick="setIdeaAdder('mariana')">Mariana</button></div></div>
       </div>
-      <div class="form-row full"><div class="form-group"><label>Your idea</label><textarea id="i-text" placeholder="A thought, a link, an inspiration, a question..."></textarea></div></div>
+      <div class="form-row full"><div class="form-group"><label>Your idea</label><textarea id="i-text" placeholder="A thought, a link, an inspiration..."></textarea></div></div>
       <button class="btn btn-primary" onclick="addIdea()">Save idea</button>
     </div>
     <div id="ideas-container"><div class="loading">Loading...</div></div>
   </div>
 
-  <!-- ═══════════════════════════════════════ SETTINGS -->
+  <!-- SETTINGS -->
   <div class="panel" id="panel-config">
     <div class="card">
-      <div class="card-title">Tier system</div>
-      <div class="card-subtitle">Tiers are rank-based — percentile cutoffs across your full guest list. Recalculates live as you add guests.</div>
-      <div id="tier-thresholds-display"></div>
+      <div class="card-title">Dynamic tier system</div>
+      <div class="card-subtitle">Tiers are rank-based percentiles. The bottom tier's size scales with total seats.</div>
+      <div id="settings-tier-display"></div>
+      <div style="margin-top:1rem;font-size:12px;color:var(--text-muted);line-height:1.8;">
+        <strong>Elimination scale (bottom tier %)</strong><br>
+        Under 60 seats → 5% · 60–74 → 10% · 75–95 → 15% · 96+ → 20%<br>
+        Remaining 95–80% split equally across the top 4 tiers.
+      </div>
     </div>
     <div class="card">
       <div class="card-title">Scoring weights</div>
-      <div class="card-subtitle">Each criterion 1–5 × weight. Family guests get ×1.5 on total. Max friend = 50, max family = 75.</div>
+      <div class="card-subtitle">Each criterion 1–5 × weight. Family ×1.5 on total. Max friend = 50, max family = 75.</div>
       <table class="weights-table">
         <tr><td>Closeness</td><td>×2.5 · max 12.5 pts</td></tr>
-        <tr><td>Contact frequency</td><td>×2.0 · max 10 pts (intl ×1.5 on freq)</td></tr>
+        <tr><td>Contact frequency</td><td>×2.0 · max 10 pts (intl ×1.5)</td></tr>
         <tr><td>Family obligation</td><td>×1.5 · max 7.5 pts</td></tr>
         <tr><td>Vibes ✨</td><td>×1.5 · max 7.5 pts</td></tr>
         <tr><td>Would invite us</td><td>×1.5 · max 7.5 pts</td></tr>
         <tr><td>Mutual friend</td><td>×1.0 · max 5 pts</td></tr>
-        <tr><td>Family multiplier</td><td>×1.5 on total score</td></tr>
+        <tr><td>Family multiplier</td><td>×1.5 on total</td></tr>
         <tr><td><strong>Max (friend / family)</strong></td><td><strong>50 / 75 pts</strong></td></tr>
       </table>
     </div>
@@ -503,8 +489,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
       <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Would invite us</span><span class="criteria-val" id="ev-reciprocal">1</span></div><div class="pip-row" id="epip-reciprocal"></div></div>
       <div class="criteria-item"><div class="criteria-header"><span class="criteria-name">Contact frequency</span><span class="criteria-val" id="ev-frequency">3</span></div><div class="pip-row" id="epip-frequency"></div></div>
     </div>
+    <!-- Plus guests stepper in modal -->
+    <div style="padding:12px 0;border-top:0.5px solid var(--border);margin-top:4px;">
+      <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:10px;">Plus guests</div>
+      <div class="plus-stepper">
+        <button type="button" onclick="changePlusEdit(-1)">−</button>
+        <span class="plus-val" id="edit-plus-val">0</span>
+        <button type="button" onclick="changePlusEdit(1)">+</button>
+        <span style="font-size:13px;color:var(--text-muted);" id="edit-plus-label">No additional guests</span>
+      </div>
+    </div>
     <div class="checks-row">
-      <label class="check-item"><input type="checkbox" id="edit-plus1" /><span>+1 guest</span></label>
       <label class="check-item"><input type="checkbox" id="edit-intl" /><span>International</span></label>
       <label class="check-item"><input type="checkbox" id="edit-parents" /><span>Parent's guest</span></label>
       <label class="check-item"><input type="checkbox" id="edit-wp" /><span>Wedding party</span></label>
@@ -543,16 +538,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url('background.
 </div>
 
 <script>
-// ── CONFIG (publishable key — safe for browser with RLS enabled) ──────────
+// ── CONFIG ────────────────────────────────────────────────────────────────
 const SB  = 'https://lxttbmlpegshgsidomiz.supabase.co';
 const KEY = 'sb_publishable_tCuYDtZVKpWVHPuwziJcDQ_5kcpGz1M';
 const H   = {'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY};
 
-// ── WEIGHTS ───────────────────────────────────────────────────────────────
-const W = {closeness:2.5, family:1.5, vibes:1.5, mutual:1.0, reciprocal:1.5, frequency:2.0};
+// ── CONSTANTS ─────────────────────────────────────────────────────────────
+const W = {closeness:2.5,family:1.5,vibes:1.5,mutual:1.0,reciprocal:1.5,frequency:2.0};
 const FAMILY_MULT = 1.5;
 const TIER_NAMES = ['Must','Strong Case','Probable but reconfirm','Is our budget over $25K?','Thank you for participating'];
-const TIER_PCTS  = [0.20, 0.20, 0.20, 0.20, 0.20]; // each quintile
 const BUDGET_CATS = ['Venue','Catering','Photography','Videography','Florals','Music / DJ','Cake','Attire','Hair & Makeup','Transport','Stationery','Officiant','Honeymoon','Miscellaneous'];
 const STATUS_LABELS = {researching:'Researching',contacted:'Contacted',quoted:'Quoted',booked:'Booked',deposit:'Deposit paid',paid:'Paid in full'};
 const CAT_LABELS = {venue:'Venue',florals:'Florals',music:'Music',food:'Food & drinks',decor:'Decor',other:'Other'};
@@ -564,128 +558,121 @@ let scorer='oscar', guestType='friend', gFilter='all', vFilter='all';
 let ideaAdder='oscar', editScorer='oscar';
 let allGuests=[], allVendors=[], allIdeas=[], budgetData={};
 let seating=[], tableSize=8, dragId=null, dragSrc=null;
-let addVals = {...CRITERIA_DEFAULTS};
-let editVals = {...CRITERIA_DEFAULTS};
+let addVals={...CRITERIA_DEFAULTS}, editVals={...CRITERIA_DEFAULTS};
+let addPlusGuests=0, editPlusGuests=0;
 
-// ── SCORING ───────────────────────────────────────────────────────────────
-function computeScore(g){
-  const freq = g.is_international ? Math.min((g.contact_frequency||1)*1.5,5) : (g.contact_frequency||1);
-  const raw = (g.closeness||1)*W.closeness + (g.family_obligation||1)*W.family +
-              (g.vibes||1)*W.vibes + (g.mutual_friend||1)*W.mutual +
-              (g.would_invite_us||1)*W.reciprocal + freq*W.frequency;
-  return Math.round(raw * (g.guest_type==='family' ? FAMILY_MULT : 1) * 10) / 10;
+// ── SEATS HELPER ──────────────────────────────────────────────────────────
+function guestSeats(g){ return 1 + (g.plus_guests||0); }
+function totalSeats(guests){ return guests.reduce((a,g)=>a+guestSeats(g),0); }
+
+// ── DYNAMIC ELIMINATION PCT ───────────────────────────────────────────────
+function elimPct(seats){
+  if(seats < 60)  return 0.05;
+  if(seats < 75)  return 0.10;
+  if(seats < 96)  return 0.15;
+  return 0.20;
 }
 
-// Rank-based tier: sort all guests by score desc, split into quintiles
+// ── TIER CUTOFFS (rank-based, seat-aware bottom tier) ─────────────────────
+// Returns array of 5 tier assignments keyed by guest id
 function computeTiers(guests){
   if(!guests.length) return {};
+  const seats = totalSeats(guests);
+  const elim  = elimPct(seats);
+  const top4  = (1 - elim) / 4;
+  // cutoffs: cumulative fraction from top
+  const cuts = [top4, top4*2, top4*3, top4*4, 1.0];
+
   const sorted = [...guests].sort((a,b)=>computeScore(b)-computeScore(a));
   const n = sorted.length;
   const result = {};
   sorted.forEach((g,i)=>{
-    const pct = i/n;
-    let tier = pct < 0.20 ? 1 : pct < 0.40 ? 2 : pct < 0.60 ? 3 : pct < 0.80 ? 4 : 5;
+    const pct = i / n;
+    let tier = 5;
+    for(let t=0;t<5;t++){ if(pct < cuts[t]){ tier=t+1; break; } }
     result[g.id] = tier;
   });
   return result;
 }
 
-// Preview tier for a hypothetical guest (inject into current list)
+// ── SCORING ───────────────────────────────────────────────────────────────
+function computeScore(g){
+  const freq = g.is_international ? Math.min((g.contact_frequency||1)*1.5,5) : (g.contact_frequency||1);
+  const raw  = (g.closeness||1)*W.closeness + (g.family_obligation||1)*W.family +
+               (g.vibes||1)*W.vibes + (g.mutual_friend||1)*W.mutual +
+               (g.would_invite_us||1)*W.reciprocal + freq*W.frequency;
+  return Math.round(raw * (g.guest_type==='family' ? FAMILY_MULT : 1) * 10) / 10;
+}
+
 function previewTier(score){
   if(!allGuests.length) return 1;
+  const seats = totalSeats(allGuests) + 1 + addPlusGuests;
+  const elim  = elimPct(seats);
+  const top4  = (1-elim)/4;
+  const cuts  = [top4,top4*2,top4*3,top4*4,1.0];
   const scores = allGuests.map(g=>computeScore(g)).concat([score]).sort((a,b)=>b-a);
   const n = scores.length;
   const idx = scores.indexOf(score);
   const pct = idx/n;
-  return pct < 0.20 ? 1 : pct < 0.40 ? 2 : pct < 0.60 ? 3 : pct < 0.80 ? 4 : 5;
+  let tier=5;
+  for(let t=0;t<5;t++){ if(pct<cuts[t]){ tier=t+1; break; } }
+  return tier;
 }
 
-function tierLabel(t){ return TIER_NAMES[t-1] || '—'; }
+function tierLabel(t){ return TIER_NAMES[t-1]||'—'; }
 function tierClass(t){ return 'tier-'+t; }
+
+// ── PLUS STEPPER ──────────────────────────────────────────────────────────
+function changePlus(delta){
+  addPlusGuests = Math.max(0, addPlusGuests + delta);
+  document.getElementById('plus-val').textContent = addPlusGuests;
+  document.getElementById('plus-label').textContent = addPlusGuests===0
+    ? 'No additional guests'
+    : addPlusGuests===1 ? '1 additional guest (2 seats total)'
+    : `${addPlusGuests} additional guests (${addPlusGuests+1} seats total)`;
+  updateScorePreview();
+}
+function changePlusEdit(delta){
+  editPlusGuests = Math.max(0, editPlusGuests + delta);
+  document.getElementById('edit-plus-val').textContent = editPlusGuests;
+  document.getElementById('edit-plus-label').textContent = editPlusGuests===0
+    ? 'No additional guests'
+    : editPlusGuests===1 ? '1 additional guest (2 seats total)'
+    : `${editPlusGuests} additional guests (${editPlusGuests+1} seats total)`;
+}
 
 // ── PIP HELPERS ───────────────────────────────────────────────────────────
 function buildPips(containerId, key, valMap, valDisplayId, onchange){
   const el = document.getElementById(containerId);
   if(!el) return;
-  el.innerHTML = '';
+  el.innerHTML='';
   for(let i=1;i<=5;i++){
     const btn = document.createElement('button');
-    btn.className = 'pip' + (valMap[key]===i?' active':'');
-    btn.textContent = i;
-    btn.type = 'button';
-    btn.onclick = ()=>{
-      valMap[key] = i;
-      buildPips(containerId, key, valMap, valDisplayId, onchange);
-      document.getElementById(valDisplayId).textContent = i;
-      if(onchange) onchange();
-    };
+    btn.className='pip'+(valMap[key]===i?' active':'');
+    btn.textContent=i; btn.type='button';
+    btn.onclick=()=>{ valMap[key]=i; buildPips(containerId,key,valMap,valDisplayId,onchange); document.getElementById(valDisplayId).textContent=i; if(onchange)onchange(); };
     el.appendChild(btn);
   }
 }
-
-function initAddPips(){
-  CRITERIA_KEYS.forEach(k=>{
-    const displayKey = k==='family'?'family':k==='mutual'?'mutual':k==='reciprocal'?'reciprocal':k;
-    buildPips('pip-'+k, k, addVals, 'v-'+k, updateScorePreview);
-  });
-}
-function initEditPips(vals){
-  CRITERIA_KEYS.forEach(k=>{
-    buildPips('epip-'+k, k, vals, 'ev-'+k, null);
-  });
-}
+function initAddPips(){ CRITERIA_KEYS.forEach(k=>buildPips('pip-'+k,k,addVals,'v-'+k,updateScorePreview)); }
+function initEditPips(vals){ CRITERIA_KEYS.forEach(k=>buildPips('epip-'+k,k,vals,'ev-'+k,null)); }
 
 // ── UI HELPERS ────────────────────────────────────────────────────────────
-function showMsg(t,type){
-  const el=document.getElementById('msg-area');
-  el.innerHTML=`<div class="msg ${type}">${t}</div>`;
-  setTimeout(()=>el.innerHTML='',3500);
-}
-function fmt(n){return'$'+(Math.round(n||0)).toLocaleString();}
-
-function setScorer(s){
-  scorer=s;
-  document.querySelectorAll('#panel-add .scorer-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('#panel-add .scorer-btn.'+s).classList.add('active');
-}
-function setType(t,btn){
-  guestType=t;
-  document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  updateScorePreview();
-}
-function setIdeaAdder(s){
-  ideaAdder=s;
-  document.getElementById('i-oscar-btn').classList.toggle('active',s==='oscar');
-  document.getElementById('i-mariana-btn').classList.toggle('active',s==='mariana');
-}
-function setEditScorer(s){
-  editScorer=s;
-  document.getElementById('edit-oscar-btn').classList.toggle('active',s==='oscar');
-  document.getElementById('edit-mariana-btn').classList.toggle('active',s==='mariana');
-}
+function showMsg(t,type){ const el=document.getElementById('msg-area');el.innerHTML=`<div class="msg ${type}">${t}</div>`;setTimeout(()=>el.innerHTML='',3500); }
+function fmt(n){ return'$'+(Math.round(n||0)).toLocaleString(); }
+function setScorer(s){ scorer=s;document.querySelectorAll('#panel-add .scorer-btn').forEach(b=>b.classList.remove('active'));document.querySelector('#panel-add .scorer-btn.'+s).classList.add('active'); }
+function setType(t,btn){ guestType=t;document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');updateScorePreview(); }
+function setIdeaAdder(s){ ideaAdder=s;document.getElementById('i-oscar-btn').classList.toggle('active',s==='oscar');document.getElementById('i-mariana-btn').classList.toggle('active',s==='mariana'); }
+function setEditScorer(s){ editScorer=s;document.getElementById('edit-oscar-btn').classList.toggle('active',s==='oscar');document.getElementById('edit-mariana-btn').classList.toggle('active',s==='mariana'); }
 
 function updateScorePreview(){
-  const isF = guestType==='family';
-  const g = {
-    closeness: addVals.closeness, family_obligation: addVals.family,
-    vibes: addVals.vibes, mutual_friend: addVals.mutual,
-    would_invite_us: addVals.reciprocal, contact_frequency: addVals.frequency,
-    is_international: document.getElementById('f-intl').checked,
-    guest_type: guestType
-  };
-  const score = computeScore(g);
-  const tier  = previewTier(score);
-  document.getElementById('score-total').textContent = score;
-  const tp = document.getElementById('tier-preview');
-  tp.className = 'tier-badge '+tierClass(tier);
-  tp.textContent = tierLabel(tier);
-  const mb = document.getElementById('family-mult-badge');
-  mb.style.display = isF?'inline-block':'none';
-  document.getElementById('score-breakdown').textContent =
-    `closeness ×2.5 · family ×1.5 · vibes ×1.5 · mutual ×1.0 · reciprocal ×1.5 · freq ×2.0`+
-    (g.is_international?' · intl ×1.5':'')+
-    (isF?' · family ×1.5':'');
+  const isF=guestType==='family';
+  const g={closeness:addVals.closeness,family_obligation:addVals.family,vibes:addVals.vibes,mutual_friend:addVals.mutual,would_invite_us:addVals.reciprocal,contact_frequency:addVals.frequency,is_international:document.getElementById('f-intl').checked,guest_type:guestType};
+  const score=computeScore(g); const tier=previewTier(score);
+  document.getElementById('score-total').textContent=score;
+  const tp=document.getElementById('tier-preview'); tp.className='tier-badge '+tierClass(tier); tp.textContent=tierLabel(tier);
+  document.getElementById('family-mult-badge').style.display=isF?'inline-block':'none';
+  document.getElementById('score-breakdown').textContent=`closeness ×2.5 · family ×1.5 · vibes ×1.5 · mutual ×1.0 · reciprocal ×1.5 · freq ×2.0`+(g.is_international?' · intl ×1.5':'')+(isF?' · family ×1.5':'');
 }
 
 function checkDuplicate(){
@@ -701,108 +688,108 @@ function checkDuplicate(){
 async function addGuest(){
   const name=document.getElementById('f-name').value.trim();
   if(!name){showMsg('Please enter a guest name.','error');return;}
-  const btn=document.getElementById('submit-btn');
-  btn.disabled=true;btn.textContent='Saving...';
-
-  const role = document.getElementById('f-role').value;
-  const payload = {
-    name, added_by:scorer, scorer, guest_type:guestType,
-    closeness:addVals.closeness, family_obligation:addVals.family,
-    vibes:addVals.vibes, mutual_friend:addVals.mutual,
-    would_invite_us:addVals.reciprocal, contact_frequency:addVals.frequency,
+  const btn=document.getElementById('submit-btn'); btn.disabled=true; btn.textContent='Saving...';
+  const role=document.getElementById('f-role').value;
+  const payload={name,added_by:scorer,scorer,guest_type:guestType,
+    closeness:addVals.closeness,family_obligation:addVals.family,vibes:addVals.vibes,
+    mutual_friend:addVals.mutual,would_invite_us:addVals.reciprocal,contact_frequency:addVals.frequency,
     is_international:document.getElementById('f-intl').checked,
-    plus_one:document.getElementById('f-plus1').checked,
+    plus_guests:addPlusGuests,
     parents_guest:document.getElementById('f-parents').checked,
     wedding_party:document.getElementById('f-wp').checked,
     special_role:role||null,
-    notes:document.getElementById('f-notes').value.trim()||null
-  };
-
+    notes:document.getElementById('f-notes').value.trim()||null};
   try{
-    // If assigning best_man or maid_of_honor, clear existing holders first
     if(role) await clearSpecialRole(role);
     const res=await fetch(`${SB}/rest/v1/guests`,{method:'POST',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
     if(!res.ok)throw new Error(await res.text());
     showMsg(`${name} added!`,'success');
-    document.getElementById('f-name').value='';
-    document.getElementById('f-notes').value='';
+    document.getElementById('f-name').value=''; document.getElementById('f-notes').value='';
     document.getElementById('dup-warning').style.display='none';
-    ['f-plus1','f-intl','f-parents','f-wp'].forEach(id=>document.getElementById(id).checked=false);
+    ['f-intl','f-parents','f-wp'].forEach(id=>document.getElementById(id).checked=false);
     document.getElementById('f-role').value='';
-    addVals={...CRITERIA_DEFAULTS};
-    initAddPips();
-    updateScorePreview();
+    addPlusGuests=0; changePlus(0);
+    addVals={...CRITERIA_DEFAULTS}; initAddPips(); updateScorePreview();
     await loadGuests();
   }catch(e){showMsg('Error saving guest.','error');console.error(e);}
-  btn.disabled=false;btn.textContent='Add to list';
+  btn.disabled=false; btn.textContent='Add to list';
 }
 
-// Clear existing special role before assigning to a new person
 async function clearSpecialRole(role){
-  const existing = allGuests.filter(g=>g.special_role===role);
-  for(const g of existing){
-    await fetch(`${SB}/rest/v1/guests?id=eq.${g.id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify({special_role:null})});
-  }
+  const existing=allGuests.filter(g=>g.special_role===role);
+  for(const g of existing) await fetch(`${SB}/rest/v1/guests?id=eq.${g.id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify({special_role:null})});
 }
 
-// ── LOAD GUESTS ───────────────────────────────────────────────────────────
+// ── LOAD ──────────────────────────────────────────────────────────────────
 async function loadGuests(){
   try{
     const res=await fetch(`${SB}/rest/v1/guests?select=*&order=created_at.desc`,{headers:H});
     if(!res.ok)throw new Error();
     allGuests=await res.json();
-    updateStats();renderList();renderReview();renderSeating();renderTierInfo();renderSettingsTiers();
-  }catch(e){
-    document.getElementById('guest-list-container').innerHTML='<div class="msg error">Could not load guests.</div>';
-  }
+    updateStats(); renderList(); renderReview(); renderSeating(); renderTierInfo(); renderSettingsTiers();
+  }catch(e){ document.getElementById('guest-list-container').innerHTML='<div class="msg error">Could not load guests.</div>'; }
 }
 
 function updateStats(){
   const tiers=computeTiers(allGuests);
-  const seats=allGuests.reduce((a,g)=>a+(g.plus_one?2:1),0);
+  const seats=totalSeats(allGuests);
+  const elim=elimPct(seats);
+  const mustGuests=allGuests.filter(g=>tiers[g.id]===1);
+  const strongGuests=allGuests.filter(g=>tiers[g.id]===2);
+  const mustSeats=totalSeats(mustGuests);
+  const strongSeats=totalSeats(strongGuests);
+
   document.getElementById('stat-total').textContent=allGuests.length;
-  document.getElementById('stat-must').textContent=Object.values(tiers).filter(t=>t===1).length;
-  document.getElementById('stat-strong').textContent=Object.values(tiers).filter(t=>t===2).length;
+  document.getElementById('stat-total-seats').textContent=`${seats} seats`;
+  document.getElementById('stat-must').textContent=mustGuests.length;
+  document.getElementById('stat-must-seats').textContent=`${mustSeats} seats`;
+  document.getElementById('stat-strong').textContent=strongGuests.length;
+  document.getElementById('stat-strong-seats').textContent=`${strongSeats} seats`;
   document.getElementById('stat-seats').textContent=seats;
+  document.getElementById('stat-elim-pct').textContent=`${Math.round(elim*100)}% elimination active`;
 }
 
 function renderTierInfo(){
+  const tiers=computeTiers(allGuests);
+  const seats=totalSeats(allGuests);
   const el=document.getElementById('tier-info-bar');
   if(!el)return;
-  const tiers=computeTiers(allGuests);
-  const counts=[1,2,3,4,5].map(t=>Object.values(tiers).filter(x=>x===t).length);
-  el.innerHTML=counts.map((c,i)=>`<div class="tier-info-row"><span class="tier-badge ${tierClass(i+1)}">${tierLabel(i+1)}</span><span style="font-size:12px;color:var(--text-muted);margin-left:4px;">${c} guests</span></div>`).join('');
+  const counts=[1,2,3,4,5].map(t=>({
+    guests:allGuests.filter(g=>tiers[g.id]===t),
+    seats:totalSeats(allGuests.filter(g=>tiers[g.id]===t))
+  }));
+  el.innerHTML=counts.map((c,i)=>`<div class="tier-info-row"><span class="tier-badge ${tierClass(i+1)}">${tierLabel(i+1)}</span><span style="font-size:12px;color:var(--text-muted);margin-left:4px;">${c.guests.length} guests · ${c.seats} seats</span></div>`).join('');
+
+  const dynEl=document.getElementById('dynamic-info-bar');
+  if(dynEl){
+    const elim=elimPct(seats);
+    dynEl.innerHTML=`<div class="dynamic-info">📊 ${seats} total seats · ${Math.round(elim*100)}% elimination threshold active — bottom ${Math.round(elim*100)}% of guests are in "Thank you for participating"</div>`;
+  }
 }
 
 function renderSettingsTiers(){
-  const el=document.getElementById('tier-thresholds-display');
+  const el=document.getElementById('settings-tier-display');
   if(!el)return;
   const tiers=computeTiers(allGuests);
-  const counts=[1,2,3,4,5].map(t=>Object.values(tiers).filter(x=>x===t).length);
-  const scores=allGuests.map(g=>computeScore(g)).sort((a,b)=>b-a);
-  const n=scores.length;
-  el.innerHTML=counts.map((c,i)=>{
-    const top=Math.floor(i*n/5);
-    const bot=Math.floor((i+1)*n/5)-1;
-    const range=n>0?`${scores[bot]||0}–${scores[top]||0} pts`:'no guests yet';
-    return`<div class="tier-info-row" style="margin-bottom:6px;"><span class="tier-badge ${tierClass(i+1)}" style="min-width:200px;">${tierLabel(i+1)}</span><span style="font-size:12px;color:var(--text-muted);margin-left:8px;">${c} guests · ${range}</span></div>`;
-  }).join('');
+  const seats=totalSeats(allGuests);
+  const elim=elimPct(seats);
+  const counts=[1,2,3,4,5].map(t=>({
+    guests:allGuests.filter(g=>tiers[g.id]===t),
+    seats:totalSeats(allGuests.filter(g=>tiers[g.id]===t))
+  }));
+  el.innerHTML=counts.map((c,i)=>`<div class="tier-info-row" style="margin-bottom:6px;"><span class="tier-badge ${tierClass(i+1)}" style="min-width:210px;text-align:center;">${tierLabel(i+1)}</span><span style="font-size:12px;color:var(--text-muted);margin-left:8px;">${c.guests.length} guests · ${c.seats} seats</span></div>`).join('');
 }
 
 // ── RENDER LIST ───────────────────────────────────────────────────────────
-function setFilter(f,btn){
-  gFilter=f;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderList();
-}
+function setFilter(f,btn){ gFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderList(); }
 
 function guestTags(g){
+  const pg = g.plus_guests||0;
   return [
     g.guest_type==='family'?'<span class="tag tag-family">family</span>':'',
     g.is_international?'<span class="tag tag-intl">intl</span>':'',
     g.parents_guest?'<span class="tag tag-parents">parent\'s</span>':'',
-    g.plus_one?'<span class="tag tag-plus1">+1</span>':'',
+    pg>0?`<span class="tag tag-plus">+${pg}</span>`:'',
     g.wedding_party?'<span class="tag tag-wp">wedding party</span>':'',
     g.special_role==='best_man'?'<span class="tag tag-bm">✈️ Best Man</span>':'',
     g.special_role==='maid_of_honor'?'<span class="tag tag-moh">🎀 Maid of Honor</span>':'',
@@ -823,11 +810,12 @@ function renderList(){
     const init=g.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
     const av=g.added_by==='oscar'?'avatar-oscar':'avatar-mariana';
     const addrColor=g.added_by==='oscar'?'var(--burgundy)':'var(--sage)';
+    const seats=guestSeats(g);
     return`<div class="guest-card">
       <div class="guest-avatar ${av}">${init}</div>
       <div class="guest-info">
         <div class="guest-name">${g.name}${guestTags(g)}</div>
-        <div class="guest-meta">Added by <span style="color:${addrColor};font-weight:500;">${g.added_by==='oscar'?'Oscar':'Mariana'}</span>${g.notes?' · '+g.notes:''}</div>
+        <div class="guest-meta">Added by <span style="color:${addrColor};font-weight:500;">${g.added_by==='oscar'?'Oscar':'Mariana'}</span>${seats>1?` · ${seats} seats`:''}${g.notes?' · '+g.notes:''}</div>
       </div>
       <div class="score-section">
         <div class="score-big">${score}</div>
@@ -849,7 +837,7 @@ function renderReview(){
   [1,2,3,4,5].forEach(tier=>{
     const gs=sorted.filter(g=>tiers[g.id]===tier);
     if(!gs.length)return;
-    const seats=gs.reduce((a,g)=>a+(g.plus_one?2:1),0);
+    const seats=totalSeats(gs);
     html+=`<div class="tier-group">
       <div class="tier-group-header">
         <span class="tier-badge ${tierClass(tier)}">${tierLabel(tier)}</span>
@@ -858,7 +846,8 @@ function renderReview(){
       ${gs.map(g=>{
         const score=computeScore(g);
         const adder=g.added_by==='oscar'?`<span style="color:var(--burgundy);font-weight:500;font-size:11px;">O</span>`:`<span style="color:var(--sage);font-weight:500;font-size:11px;">M</span>`;
-        return`<div class="review-row"><span class="review-name">${g.name}${guestTags(g)}</span><span style="font-size:11px;color:var(--text-muted)">${g.notes||''}</span>${adder}<span style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;min-width:32px;text-align:right;">${score}</span></div>`;
+        const seatStr=guestSeats(g)>1?`<span style="font-size:10px;color:var(--text-muted)"> (${guestSeats(g)} seats)</span>`:'';
+        return`<div class="review-row"><span class="review-name">${g.name}${guestTags(g)}${seatStr}</span><span style="font-size:11px;color:var(--text-muted)">${g.notes||''}</span>${adder}<span style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;min-width:32px;text-align:right;">${score}</span></div>`;
       }).join('')}
     </div>`;
   });
@@ -879,13 +868,14 @@ function openEditModal(id){
   document.getElementById('edit-notes').value=g.notes||'';
   document.getElementById('edit-type').value=g.guest_type||'friend';
   document.getElementById('edit-intl').checked=!!g.is_international;
-  document.getElementById('edit-plus1').checked=!!g.plus_one;
   document.getElementById('edit-parents').checked=!!g.parents_guest;
   document.getElementById('edit-wp').checked=!!g.wedding_party;
   document.getElementById('edit-role').value=g.special_role||'';
+  editPlusGuests=g.plus_guests||0;
+  document.getElementById('edit-plus-val').textContent=editPlusGuests;
+  document.getElementById('edit-plus-label').textContent=editPlusGuests===0?'No additional guests':editPlusGuests===1?'1 additional guest (2 seats total)':`${editPlusGuests} additional guests (${editPlusGuests+1} seats total)`;
   const ev={closeness:g.closeness||1,family:g.family_obligation||1,vibes:g.vibes||1,mutual:g.mutual_friend||1,reciprocal:g.would_invite_us||1,frequency:g.contact_frequency||1};
   initEditPips(ev);
-  // store for save
   document.getElementById('edit-modal')._editVals=ev;
   setEditScorer(g.added_by||'oscar');
   document.getElementById('edit-modal').style.display='flex';
@@ -895,20 +885,16 @@ async function saveEdit(){
   const id=document.getElementById('edit-id').value;
   const ev=document.getElementById('edit-modal')._editVals||{};
   const role=document.getElementById('edit-role').value;
-  if(role){
-    const cur=allGuests.find(g=>g.id===id);
-    if(!cur||cur.special_role!==role) await clearSpecialRole(role);
-  }
+  if(role){const cur=allGuests.find(g=>g.id===id);if(!cur||cur.special_role!==role)await clearSpecialRole(role);}
   const p={
     name:document.getElementById('edit-name').value.trim(),
     added_by:editScorer,scorer:editScorer,
     guest_type:document.getElementById('edit-type').value,
     notes:document.getElementById('edit-notes').value.trim()||null,
-    closeness:ev.closeness||1,family_obligation:ev.family||1,
-    vibes:ev.vibes||1,mutual_friend:ev.mutual||1,
-    would_invite_us:ev.reciprocal||1,contact_frequency:ev.frequency||1,
+    closeness:ev.closeness||1,family_obligation:ev.family||1,vibes:ev.vibes||1,
+    mutual_friend:ev.mutual||1,would_invite_us:ev.reciprocal||1,contact_frequency:ev.frequency||1,
     is_international:document.getElementById('edit-intl').checked,
-    plus_one:document.getElementById('edit-plus1').checked,
+    plus_guests:editPlusGuests,
     parents_guest:document.getElementById('edit-parents').checked,
     wedding_party:document.getElementById('edit-wp').checked,
     special_role:role||null
@@ -917,8 +903,7 @@ async function saveEdit(){
     const res=await fetch(`${SB}/rest/v1/guests?id=eq.${id}`,{method:'PATCH',headers:{...H,'Prefer':'return=minimal'},body:JSON.stringify(p)});
     if(!res.ok)throw new Error(await res.text());
     document.getElementById('edit-modal').style.display='none';
-    showMsg('Guest updated!','success');
-    await loadGuests();
+    showMsg('Guest updated!','success'); await loadGuests();
   }catch(e){showMsg('Error saving changes.','error');}
 }
 async function deleteGuestFromModal(){
@@ -933,10 +918,12 @@ function saveTableSize(){tableSize=parseInt(document.getElementById('table-size'
 function autoArrange(){
   const tiers=computeTiers(allGuests);
   const eligible=allGuests.filter(g=>tiers[g.id]===1||tiers[g.id]===2);
+  // expand plus_guests into individual seat slots
   const seats=[];
   eligible.forEach(g=>{
     seats.push(g);
-    if(g.plus_one)seats.push({...g,id:g.id+'_p1',name:g.name+' (+1)',_virtual:true});
+    const pg=g.plus_guests||0;
+    for(let i=0;i<pg;i++) seats.push({...g,id:g.id+'_p'+(i+1),name:g.name+' (guest '+(i+1)+')',_virtual:true});
   });
   const groups=[
     seats.filter(g=>g.added_by==='oscar'&&g.guest_type==='family').sort((a,b)=>computeScore(b)-computeScore(a)),
@@ -944,7 +931,7 @@ function autoArrange(){
     seats.filter(g=>g.added_by==='mariana'&&g.guest_type==='family').sort((a,b)=>computeScore(b)-computeScore(a)),
     seats.filter(g=>g.added_by==='mariana'&&g.guest_type!=='family').sort((a,b)=>computeScore(b)-computeScore(a)),
   ];
-  const ordered=groups.flat();seating=[];
+  const ordered=groups.flat(); seating=[];
   for(let i=0,n=1;i<ordered.length;i+=tableSize,n++)
     seating.push({id:'t'+n,name:'Table '+n,guests:ordered.slice(i,i+tableSize).map(g=>g.id)});
   renderSeatingBoard();
@@ -960,14 +947,16 @@ function renderSeatingBoard(){
   const unassigned=allGuests.filter(g=>!assigned.has(g.id)&&(tiers[g.id]===1||tiers[g.id]===2));
   let html='';
   if(unassigned.length)html+=`<div class="unassigned-pool"><div class="unassigned-title">Unassigned (${unassigned.length})</div><div class="table-drop-zone" id="drop-unassigned" ondragover="dOver(event)" ondrop="dDrop(event,'unassigned')" ondragleave="dLeave(event)">${unassigned.map(seatItem).join('')}</div></div>`;
-  html+=`<div class="tables-grid">${seating.map(t=>{const tg=t.guests.map(id=>allGuests.find(g=>g.id===id)).filter(Boolean);return`<div class="table-card"><div class="table-header"><span class="table-name">${t.name}</span><span class="table-count">${tg.length}/${tableSize}</span></div><div class="table-drop-zone" id="drop-${t.id}" ondragover="dOver(event)" ondrop="dDrop(event,'${t.id}')" ondragleave="dLeave(event)">${tg.map(seatItem).join('')}</div></div>`;}).join('')}</div>`;
+  html+=`<div class="tables-grid">${seating.map(t=>{const tg=t.guests.map(id=>allGuests.find(g=>g.id===id)).filter(Boolean);const tSeats=totalSeats(tg);return`<div class="table-card"><div class="table-header"><span class="table-name">${t.name}</span><span class="table-count">${tSeats} seats / ${tableSize}</span></div><div class="table-drop-zone" id="drop-${t.id}" ondragover="dOver(event)" ondrop="dDrop(event,'${t.id}')" ondragleave="dLeave(event)">${tg.map(seatItem).join('')}</div></div>`;}).join('')}</div>`;
   board.innerHTML=html;
 }
 function seatItem(g){
   const av=g.added_by==='oscar'?'avatar-oscar':'avatar-mariana';
   const init=g.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase();
   const role=g.special_role==='best_man'?' ✈️':g.special_role==='maid_of_honor'?' 🎀':'';
-  return`<div class="seat-item" draggable="true" ondragstart="dStart(event,'${g.id}')" ondragend="dEnd(event)"><div class="seat-avatar ${av}">${init}</div><span style="flex:1">${g.name}${role}${g.plus_one?'<span class="tag tag-plus1">+1</span>':''}</span><span style="font-size:11px;color:var(--text-muted)">${computeScore(g)}</span></div>`;
+  const pg=g.plus_guests||0;
+  const seatInfo=pg>0?`<span style="font-size:10px;color:var(--text-muted)"> +${pg}</span>`:'';
+  return`<div class="seat-item" draggable="true" ondragstart="dStart(event,'${g.id}')" ondragend="dEnd(event)"><div class="seat-avatar ${av}">${init}</div><span style="flex:1">${g.name}${role}${seatInfo}</span><span style="font-size:11px;color:var(--text-muted)">${computeScore(g)}</span></div>`;
 }
 function dStart(e,id){dragId=id;dragSrc=e.currentTarget.closest('.table-drop-zone').id.replace('drop-','');e.currentTarget.classList.add('dragging');e.dataTransfer.effectAllowed='move';}
 function dEnd(e){e.currentTarget.classList.remove('dragging');}
@@ -984,20 +973,15 @@ function saveSeating(){localStorage.setItem('seating',JSON.stringify({s:seating,
 
 // ── BUDGET ────────────────────────────────────────────────────────────────
 async function loadBudget(){
-  try{
-    const res=await fetch(`${SB}/rest/v1/budget?select=*`,{headers:H});
-    if(!res.ok)throw new Error();
-    const rows=await res.json();
-    budgetData={};rows.forEach(r=>{budgetData[r.category]={id:r.id,estimated:r.estimated||0,actual:r.actual||0,notes:r.notes||''};});
-    renderBudget();
-  }catch(e){renderBudget();}
+  try{const res=await fetch(`${SB}/rest/v1/budget?select=*`,{headers:H});if(!res.ok)throw new Error();const rows=await res.json();budgetData={};rows.forEach(r=>{budgetData[r.category]={id:r.id,estimated:r.estimated||0,actual:r.actual||0,notes:r.notes||''};});renderBudget();}
+  catch(e){renderBudget();}
 }
 function renderBudget(){
   const est=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.estimated||0),0);
   const act=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.actual||0),0);
   const pct=est>0?Math.min((act/est)*100,100):0;
   const bc=pct>90?'burn-over':pct>70?'burn-warn':'burn-ok';
-  document.getElementById('budget-summary').innerHTML=`<div class="budget-total-card"><div class="budget-total-label">Total budget</div><div class="budget-total-num">${fmt(est)}</div><div style="font-size:12px;color:var(--gold);margin-top:2px;">Spent: ${fmt(act)} &nbsp;·&nbsp; Remaining: ${fmt(est-act)}</div><div class="budget-burn-bar"><div class="budget-burn-fill ${bc}" style="width:${pct.toFixed(1)}%"></div></div></div>`;
+  document.getElementById('budget-summary').innerHTML=`<div class="budget-total-card"><div class="budget-total-label">Total budget</div><div class="budget-total-num">${fmt(est)}</div><div style="font-size:12px;color:var(--gold);margin-top:2px;">Spent: ${fmt(act)} · Remaining: ${fmt(est-act)}</div><div class="budget-burn-bar"><div class="budget-burn-fill ${bc}" style="width:${pct.toFixed(1)}%"></div></div></div>`;
   document.getElementById('budget-tbody').innerHTML=BUDGET_CATS.map(cat=>{
     const d=budgetData[cat]||{estimated:0,actual:0,notes:''};
     const diff=(d.actual||0)-(d.estimated||0);
@@ -1014,7 +998,7 @@ function ubLocal(el){
   const act=BUDGET_CATS.reduce((a,c)=>a+(budgetData[c]?.actual||0),0);
   const pct=est>0?Math.min((act/est)*100,100):0;
   const bc=pct>90?'burn-over':pct>70?'burn-warn':'burn-ok';
-  document.getElementById('budget-summary').innerHTML=`<div class="budget-total-card"><div class="budget-total-label">Total budget</div><div class="budget-total-num">${fmt(est)}</div><div style="font-size:12px;color:var(--gold);margin-top:2px;">Spent: ${fmt(act)} &nbsp;·&nbsp; Remaining: ${fmt(est-act)}</div><div class="budget-burn-bar"><div class="budget-burn-fill ${bc}" style="width:${pct.toFixed(1)}%"></div></div></div>`;
+  document.getElementById('budget-summary').innerHTML=`<div class="budget-total-card"><div class="budget-total-label">Total budget</div><div class="budget-total-num">${fmt(est)}</div><div style="font-size:12px;color:var(--gold);margin-top:2px;">Spent: ${fmt(act)} · Remaining: ${fmt(est-act)}</div><div class="budget-burn-bar"><div class="budget-burn-fill ${bc}" style="width:${pct.toFixed(1)}%"></div></div></div>`;
 }
 async function saveBudget(){
   try{
@@ -1096,8 +1080,7 @@ async function deleteIdea(id){
 function switchTab(tab,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('panel-'+tab).classList.add('active');
+  btn.classList.add('active'); document.getElementById('panel-'+tab).classList.add('active');
   if(['list','review','seating'].includes(tab))loadGuests();
   if(tab==='budget')loadBudget();
   if(tab==='vendors')loadVendors();
@@ -1108,7 +1091,6 @@ function switchTab(tab,btn){
 function initSeating(){
   try{const d=localStorage.getItem('seating');if(d){const p=JSON.parse(d);seating=p.s||[];tableSize=p.ts||8;document.getElementById('table-size').value=tableSize;}}catch(e){}
 }
-
 initAddPips();
 updateScorePreview();
 initSeating();
